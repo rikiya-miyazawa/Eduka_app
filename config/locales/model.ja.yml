@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      #モデル名: 日本語モデル名
+      #blog: ブログ
+      #user: ユーザー
+    attributes:
+      #モデル名
+      #blog:
+        #カラム名: 日本語カラム名
+        #title: タイトル
+        #content: 内容
+      #モデル名
+      #user:
+        # title: タイトル
+        # name: 名前
+        # email: メールアドレス
+        # current_password: 現在のパスワード
+        # password: パスワード
+        # password_confirmation: 確認用パスワード
+        # remember_me: ログインを記憶
