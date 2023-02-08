@@ -9,6 +9,7 @@
   <tr>
     <td><%= education.name %></td>
     <td><%= link_to t('view.educations.show'), education_path(education.id) %></td>
+    <td><%= link_to t('view.educations.edit'), edit_education_path(education.id) %></td>
   </tr>
 <% end %>
 </table>

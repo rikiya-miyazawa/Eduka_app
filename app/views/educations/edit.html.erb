@@ -1,2 +1,24 @@
-<h1>Educations#edit</h1>
-<p>Find me in app/views/educations/edit.html.erb</p>
+<h2><%= t('view.educations.edit_education') %></h2>
+
+<%= form_with(model: @education, local: true) do |form| %>
+
+  <% if @education.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @education.errors.count %>
+      <%= t('errors.messages.count') %></h2>
+      <ul>
+
+      <% @education.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="education_name">
+    <%= form.label :name %>
+    <br>
+    <%= form.text_field :name %>
+  </div>
+  <%= form.submit t('helpers.submit.update') %>
+<% end %>

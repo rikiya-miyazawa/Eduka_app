@@ -11,13 +11,16 @@ ja:
     educations:
       education: '教育ページ'
       new_education: '教育ページ作成'
+      edit_education: '教育ページ編集'
       index: 'の教育ページ一覧'
       create: '作成'
       show: '詳細'
+      edit: '編集'
       conjunction: 'の'
       page: 'ページ'
       notice:
         create_education: '教育ページを作成しました！'
+        update_education: '教育ページを編集しました！'
   date:
     abbr_day_names:
     - 日
