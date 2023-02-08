@@ -3,6 +3,7 @@ class EducationsController < ApplicationController
   end
 
   def new
+    @education = Education.new
   end
 
   def edit
