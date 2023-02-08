@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_08_014307) do
+ActiveRecord::Schema.define(version: 2023_02_08_080744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,4 +21,15 @@ ActiveRecord::Schema.define(version: 2023_02_08_014307) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "subjects", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "status", default: false, null: false
+    t.date "deadline"
+    t.bigint "education_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["education_id"], name: "index_subjects_on_education_id"
+  end
+
+  add_foreign_key "subjects", "educations"
 end
