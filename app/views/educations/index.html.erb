@@ -1,2 +1,12 @@
-<h1>Educations#index</h1>
-<p>Find me in app/views/educations/index.html.erb</p>
+<h2><%= t('view.educations.index') %></h2>
+<br>
+<h3><%= t('view.educations.education') %>
+<%= link_to t('view.educations.create'), new_education_path %></h3>
+
+<table>
+<% @educations.each do |education| %>
+  <tr>
+    <td><%= education.name %></td>
+  </tr>
+<% end %>
+</table>

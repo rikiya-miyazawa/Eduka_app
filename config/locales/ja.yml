@@ -9,7 +9,10 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
   view:
     educations:
+      education: '教育ページ'
       new_education: '教育ページ作成'
+      index: 'の教育ページ一覧'
+      create: '作成'
   date:
     abbr_day_names:
     - 日
