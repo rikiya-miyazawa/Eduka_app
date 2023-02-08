@@ -8,8 +8,13 @@ class EducationsController < ApplicationController
   end
 
   def create
-    Education.create(education_params)
-    redirect_to educations_path
+    @education = Education.new(education_params)
+    if @education.save
+      redirect_to educations_path, 
+      notice: t('view.educations.notice.create_education')
+    else
+      render :new
+    end
   end
 
   def edit
