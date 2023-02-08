@@ -99,6 +99,7 @@ ja:
       accepted: を受諾してください
       blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
+      count: 件のエラーがあります
       empty: を入力してください
       equal_to: は%{count}にしてください
       even: は偶数にしてください
