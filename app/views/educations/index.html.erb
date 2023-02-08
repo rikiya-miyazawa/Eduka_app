@@ -10,6 +10,8 @@
     <td><%= education.name %></td>
     <td><%= link_to t('view.educations.show'), education_path(education.id) %></td>
     <td><%= link_to t('view.educations.edit'), edit_education_path(education.id) %></td>
+    <td><%= link_to t('view.educations.destroy'), education_path(education.id),
+      method: :delete, data: { confirm: t('view.educations.confirm.destroy') } %></td>
   </tr>
 <% end %>
 </table>

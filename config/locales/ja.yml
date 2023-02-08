@@ -16,11 +16,15 @@ ja:
       create: '作成'
       show: '詳細'
       edit: '編集'
+      destroy: '削除'
       conjunction: 'の'
       page: 'ページ'
       notice:
         create_education: '教育ページを作成しました！'
         update_education: '教育ページを編集しました！'
+        destroy_education: '教育ページを削除しました！'
+      confirm:
+        destroy: '本当に削除しますか？'
   date:
     abbr_day_names:
     - 日
