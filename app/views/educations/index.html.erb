@@ -7,6 +7,7 @@
 <% @educations.each do |education| %>
   <tr>
     <td><%= education.name %></td>
+    <td><%= link_to t('view.educations.show'), education_path(education.id) %></td>
   </tr>
 <% end %>
 </table>

@@ -16,6 +16,7 @@ class EducationsController < ApplicationController
   end
 
   def show
+    @education = Education.find(params[:id])
   end
 
   private
