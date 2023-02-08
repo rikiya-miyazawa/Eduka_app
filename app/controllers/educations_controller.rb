@@ -1,4 +1,5 @@
 class EducationsController < ApplicationController
+  bofore_action :set_education, only: %i(show edit update)
   def index
     @educations = Education.all
   end
@@ -18,11 +19,9 @@ class EducationsController < ApplicationController
   end
 
   def edit
-    @education = Education.find(params[:id])
   end
 
   def update
-    @education = Education.find(params[:id])
     if @education.update(education_params)
       redirect_to educations_path,
       notice: t('view.educations.notice.update_education')
@@ -32,7 +31,6 @@ class EducationsController < ApplicationController
   end
 
   def show
-    @education = Education.find(params[:id])
   end
 
   private
@@ -40,4 +38,9 @@ class EducationsController < ApplicationController
   def education_params
     params.require(:education).permit(:name)
   end
+
+  def set_education
+    @education = Education.find(params[:id])
+  end
+  
 end
