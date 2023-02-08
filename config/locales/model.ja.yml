@@ -2,12 +2,16 @@ ja:
   activerecord:
     models:
       #モデル名: 日本語モデル名
-      #blog: ブログ
+      education: 教育ページ
       #user: ユーザー
     attributes:
       #モデル名
       #blog:
         #カラム名: 日本語カラム名
+        #title: タイトル
+        #content: 内容
+      education:
+        name: 教育種類
         #title: タイトル
         #content: 内容
       #モデル名

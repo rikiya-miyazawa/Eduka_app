@@ -7,6 +7,9 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  view:
+    educations:
+      new_education: '教育ページ作成'
   date:
     abbr_day_names:
     - 日
@@ -117,9 +120,9 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
+      create: 作成
       submit: 保存する
-      update: 更新する
+      update: 更新
   number:
     currency:
       format:

@@ -1,2 +1,10 @@
-<h1>Educations#new</h1>
-<p>Find me in app/views/educations/new.html.erb</p>
+<h2><%= t('view.educations.new_education') %></h2>
+
+<%= form_with(model: Education.new, local: true) do |form| %>
+  <div class="education_name">
+    <%= form.label :name %>
+    <br>
+    <%= form.text_field :name %>
+  </div>
+  <%= form.submit t('helpers.submit.create') %>
+<% end %>
