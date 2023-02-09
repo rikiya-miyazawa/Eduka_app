@@ -3,7 +3,7 @@ ja:
     models:
       #モデル名: 日本語モデル名
       education: 教育ページ
-      #user: ユーザー
+      subject: 課題
     attributes:
       #モデル名
       #blog:
@@ -12,13 +12,10 @@ ja:
         #content: 内容
       education:
         name: 教育種類
-        #title: タイトル
-        #content: 内容
-      #モデル名
-      #user:
-        # title: タイトル
-        # name: 名前
-        # email: メールアドレス
+      subject:
+        name: 課題名
+        status: 合格状況
+        deadline: 合格期限
         # current_password: 現在のパスワード
         # password: パスワード
         # password_confirmation: 確認用パスワード

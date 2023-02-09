@@ -1,2 +1,38 @@
-<h1>Subjects#new</h1>
-<p>Find me in app/views/subjects/new.html.erb</p>
+<h2><%= t('view.subjects.new_subject') %></h2>
+
+<%= form_with(model: @subject, local: true) do |form| %>
+
+  <% if @subject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @subject.errors.count %>
+      <%= t('errors.messages.count') %></h2>
+      <ul>
+
+      <% @subject.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="subject_name">
+    <%= form.label :name %>
+    <br>
+    <%= form.text_field :name %>
+  </div>
+  <div class="subject_status">
+    <%= form.label :status %>
+    <%= form.select :status, Subject.statuses.keys %>
+  </div>
+  <div class="subject_deadline">
+    <%= form.label :deadline %>
+    <%= form.date_select :deadline, include_blank: ""%>
+  </div>
+  <div class="education_id">
+    <%= form.label t('view.educations.education') %>
+    <%= form.select :education_id,  Education.all.collect { |p| [ p.name, p.id ] }%>
+  </div>
+
+  <%= form.submit t('helpers.submit.create') %>
+<% end %>
+  <td><%= link_to t('helpers.back'), :back %></td>

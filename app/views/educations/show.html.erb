@@ -1,4 +1,28 @@
-<h2><%= t('view.educations.conjunction') %>
+<h2><%= t('view.share.conjunction') %>
 <%= @education.name %>
-<%= t('view.educations.page') %></h2>
+<%= t('view.share.page') %></h2>
+<p><%= notice %></p>
 
+
+<table>
+<tr>
+    <th><%= t('view.subjects.subject') %></th>
+    <th><%= t('view.subjects.status') %></th>
+    <th><%= t('view.subjects.deadline') %></th>
+    <th><%= link_to t('view.share.create'), new_subject_path %></th>
+</tr>
+
+<% @education.subjects.each do |subject| %>
+  <tr>
+    <td><%= subject.name %></td>
+    <td><%= subject.status %></td>
+    <td><%= subject.deadline %></td>
+    <td><%= link_to t('view.share.show'), subject_path(subject.id) %></td>
+    <td><%= link_to t('view.share.edit'), edit_subject_path(subject.id) %></td>
+    <td><%= link_to t('view.share.destroy'), subject_path(subject.id),
+      method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+  </tr>
+<% end %> 
+</table>
+
+<td><%= link_to t('helpers.back'), :back %></td>
