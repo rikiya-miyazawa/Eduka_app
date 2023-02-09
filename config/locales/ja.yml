@@ -21,7 +21,7 @@ ja:
       education: '教育ページ'
       new_education: '教育ページ作成'
       edit_education: '教育ページ編集'
-      index: 'の教育ページ一覧'
+      index: '教育ページ一覧'
       notice:
         create_education: '教育ページを作成しました！'
         update_education: '教育ページを編集しました！'
