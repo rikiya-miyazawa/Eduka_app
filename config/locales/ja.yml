@@ -38,6 +38,9 @@ ja:
         destroy_subject: '課題を削除しました！'
     teachings:
       teaching: '教育内容'
+      date: '教育日'
+      educator: '教育者'
+      title: 'タイトル'
       new_teaching: '教育内容作成'
       notice:
         create_teaching: '教育内容を作成しました！'
