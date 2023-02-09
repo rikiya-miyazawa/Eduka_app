@@ -31,6 +31,9 @@ class TeachingsController < ApplicationController
   end
 
   def destroy
+    @teaching.destroy
+    redirect_to subject_path(@teaching.subject_id),
+    notice: t('view.teachings.notice.destroy_teaching')
   end
 
   private
