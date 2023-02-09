@@ -36,6 +36,13 @@ ja:
         create_subject: '課題を作成しました！'
         update_subject: '課題を編集しました！'
         destroy_subject: '課題を削除しました！'
+    teachings:
+      teaching: '教育内容'
+      new_teaching: '教育内容作成'
+      notice:
+        create_teaching: '教育内容を作成しました！'
+        update_teaching: '教育内容を編集しました！'
+        destroy_teaching: '教育内容を削除しました！'
   date:
     abbr_day_names:
     - 日
