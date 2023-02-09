@@ -1,17 +1,18 @@
-<h2><%= t('view.educations.index') %></h2>
+<h2><%= t('view.share.conjunction') %>
+<%= t('view.educations.index') %></h2>
 <p><%= notice %></p>
 <br>
 <h3><%= t('view.educations.education') %>
-<%= link_to t('view.educations.create'), new_education_path %></h3>
+<%= link_to t('view.share.create'), new_education_path %></h3>
 
 <table>
 <% @educations.each do |education| %>
   <tr>
     <td><%= education.name %></td>
-    <td><%= link_to t('view.educations.show'), education_path(education.id) %></td>
-    <td><%= link_to t('view.educations.edit'), edit_education_path(education.id) %></td>
-    <td><%= link_to t('view.educations.destroy'), education_path(education.id),
-      method: :delete, data: { confirm: t('view.educations.confirm.destroy') } %></td>
+    <td><%= link_to t('view.share.show'), education_path(education.id) %></td>
+    <td><%= link_to t('view.share.edit'), edit_education_path(education.id) %></td>
+    <td><%= link_to t('view.share.destroy'), education_path(education.id),
+      method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
   </tr>
 <% end %>
 </table>

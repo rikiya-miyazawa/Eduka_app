@@ -8,23 +8,34 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
   view:
-    educations:
-      education: '教育ページ'
-      new_education: '教育ページ作成'
-      edit_education: '教育ページ編集'
-      index: 'の教育ページ一覧'
+    share:
       create: '作成'
       show: '詳細'
       edit: '編集'
       destroy: '削除'
       conjunction: 'の'
       page: 'ページ'
+      confirm:
+        destroy: '本当に削除しますか？'
+    educations:
+      education: '教育ページ'
+      new_education: '教育ページ作成'
+      edit_education: '教育ページ編集'
+      index: '教育ページ一覧'
       notice:
         create_education: '教育ページを作成しました！'
         update_education: '教育ページを編集しました！'
         destroy_education: '教育ページを削除しました！'
-      confirm:
-        destroy: '本当に削除しますか？'
+    subjects:
+      subject: '課題'
+      new_subject: '課題作成'
+      edit_subject: '課題編集'
+      status: '合格状況'
+      deadline: '合格期限'
+      notice:
+        create_subject: '課題を作成しました！'
+        update_subject: '課題を編集しました！'
+        destroy_subject: '課題を削除しました！'
   date:
     abbr_day_names:
     - 日
@@ -139,6 +150,7 @@ ja:
       create: 作成
       submit: 保存する
       update: 更新
+    back: 戻る
   number:
     currency:
       format:

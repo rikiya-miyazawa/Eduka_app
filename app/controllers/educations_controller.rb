@@ -32,6 +32,7 @@ class EducationsController < ApplicationController
   end
 
   def show
+    @subjects = Subject.all
   end
 
   def destroy
