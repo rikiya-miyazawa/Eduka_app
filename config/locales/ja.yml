@@ -29,10 +29,12 @@ ja:
     subjects:
       subject: '課題'
       new_subject: '課題作成'
+      edit_subject: '課題編集'
       status: '合格状況'
       deadline: '合格期限'
       notice:
         create_subject: '課題を作成しました！'
+        update_subject: '課題を編集しました！'
   date:
     abbr_day_names:
     - 日

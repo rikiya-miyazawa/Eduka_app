@@ -18,6 +18,15 @@ class SubjectsController < ApplicationController
   def edit
   end
 
+  def update
+    if @subject.update(subject_params)
+      redirect_to educations_path(@subject.education_id),
+      notice: t('view.subjects.notice.update_subject')
+    else
+      render :edit
+    end
+  end
+
   def show
   end
 
