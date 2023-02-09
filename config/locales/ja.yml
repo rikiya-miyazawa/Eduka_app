@@ -42,6 +42,10 @@ ja:
       date: '教育日'
       educator: '教育者'
       title: 'タイトル'
+      content: '内容'
+      advice: 'アドバイス'
+      remarks: '備考'
+      index: '教育内容一覧'
       new_teaching: '教育内容作成'
       edit_teaching: '教育内容編集'
       notice:
