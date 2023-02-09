@@ -19,14 +19,18 @@ class TeachingsController < ApplicationController
   end
 
   def update
-
+    if @teaching.update(teaching_params)
+      redirect_to subject_path(@teaching.subject_id),
+      notice: t('view.teachings.notice.update_teaching')
+    else
+      render :edit
+    end
   end
 
   def show
   end
 
   def destroy
-    
   end
 
   private

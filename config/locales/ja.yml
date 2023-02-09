@@ -28,6 +28,7 @@ ja:
         destroy_education: '教育ページを削除しました！'
     subjects:
       subject: '課題'
+      index: '課題一覧'
       new_subject: '課題作成'
       edit_subject: '課題編集'
       status: '合格状況'
@@ -42,6 +43,7 @@ ja:
       educator: '教育者'
       title: 'タイトル'
       new_teaching: '教育内容作成'
+      edit_teaching: '教育内容編集'
       notice:
         create_teaching: '教育内容を作成しました！'
         update_teaching: '教育内容を編集しました！'

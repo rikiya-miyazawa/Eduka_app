@@ -20,7 +20,7 @@ class SubjectsController < ApplicationController
 
   def update
     if @subject.update(subject_params)
-      redirect_to educations_path(@subject.education_id),
+      redirect_to education_path(@subject.education_id),
       notice: t('view.subjects.notice.update_subject')
     else
       render :edit
@@ -32,7 +32,7 @@ class SubjectsController < ApplicationController
 
   def destroy
     @subject.destroy
-    redirect_to educations_path(@subject.education_id),
+    redirect_to education_path(@subject.education_id),
     notice: t('view.subjects.notice.destroy_subject')
   end
 
