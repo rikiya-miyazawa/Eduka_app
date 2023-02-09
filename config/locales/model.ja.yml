@@ -4,6 +4,7 @@ ja:
       #モデル名: 日本語モデル名
       education: 教育ページ
       subject: 課題
+      teaching: 教育内容
     attributes:
       #モデル名
       #blog:
@@ -16,6 +17,13 @@ ja:
         name: 課題名
         status: 合格状況
         deadline: 合格期限
+      teaching:
+        date: 教育日
+        educator: 教育者名
+        title: タイトル
+        content: 内容
+        advice: アドバイス
+        remarks: 備考
         # current_password: 現在のパスワード
         # password: パスワード
         # password_confirmation: 確認用パスワード

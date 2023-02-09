@@ -1,0 +1,16 @@
+
+<h3><%= t('view.teachings.title') %> : <%= @teaching.title %></h3>
+<h3><%= t('view.teachings.content') %></h3>
+<%= @teaching.content %>
+<br>
+<br>
+<h3><%= t('view.teachings.advice') %></h3>
+<%= @teaching.advice %>
+<br>
+<br>
+<h3><%= t('view.teachings.remarks') %></h3>
+<%= @teaching.remarks %>
+<br>
+<br>
+<%= link_to t('helpers.back'), :back %>
+<%= link_to t('view.teachings.index'), subject_path(@teaching.subject_id) %>

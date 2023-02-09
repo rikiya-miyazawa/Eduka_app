@@ -1,0 +1,53 @@
+<h2><%= t('view.teachings.edit_teaching') %></h2>
+
+<%= form_with(model: @teaching, local: true) do |form| %>
+
+  <% if @teaching.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @teaching.errors.count %>
+      <%= t('errors.messages.count') %></h2>
+      <ul>
+
+      <% @teaching.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="teaching_date">
+    <%= form.label :date %>
+    <br>
+    <%= form.date_select :date %>
+  </div>
+  <div class="teaching_educator">
+    <%= form.label :educator %>
+    <%= form.text_field :educator %>
+  </div>
+  <div class="subject_id">
+    <%= form.label t('view.subjects.subject') %>
+    <%= form.select :subject_id,  Subject.all.collect { |p| [ p.name, p.id ] }%>
+  </div>
+  <div class="teaching_title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="teaching_content">
+    <%= form.label :content %>
+    <br>
+    <%= form.text_area :content %>
+  </div>
+  <div class="teaching_advice">
+    <%= form.label :advice %>
+    <br>
+    <%= form.text_area :advice %>
+  </div>
+  <div class="teaching_remarks">
+    <%= form.label :remarks %>
+    <br>
+    <%= form.text_area :remarks %>
+  </div>
+
+  <%= form.submit t('helpers.submit.update') %>
+<% end %>
+  <%= link_to t('helpers.back'), :back %>

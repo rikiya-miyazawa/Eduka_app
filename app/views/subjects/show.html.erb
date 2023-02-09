@@ -3,5 +3,28 @@
 <%= t('view.share.conjunction') %>
 <%= t('view.share.page') %></h2>
 <p><%= notice %></p>
+
+<table>
+<tr>
+    <th><%= t('view.teachings.date') %></th>
+    <th><%= t('view.teachings.educator') %></th>
+    <th><%= t('view.teachings.title') %></th>
+    <th><%= link_to t('view.share.create'), new_teaching_path %></th>
+</tr>
+
+<% @subject.teachings.each do |teaching| %>
+  <tr>
+    <td><%= teaching.date %></td>
+    <td><%= teaching.educator %></td>
+    <td><%= teaching.title %></td>
+    <td><%= link_to t('view.share.show'), teaching_path(teaching.id) %></td>
+    <td><%= link_to t('view.share.edit'), edit_teaching_path(teaching.id) %></td>
+    <td><%= link_to t('view.share.destroy'), teaching_path(teaching.id),
+      method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+  </tr>
+<% end %> 
+</table>
+
 <%= link_to t('helpers.back'), :back %>
+<%= link_to t('view.subjects.index'), education_path(@subject.education_id) %>
 
