@@ -1,7 +1,7 @@
 class CreateStatuses < ActiveRecord::Migration[6.1]
   def change
     create_table :statuses do |t|
-      t.string :purpose
+      t.string :purpose, null: false
       t.date :education_period
       t.date :created_date
       t.text :remarks
