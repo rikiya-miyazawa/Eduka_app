@@ -35,6 +35,7 @@ ja:
       notice:
         create_subject: '課題を作成しました！'
         update_subject: '課題を編集しました！'
+        destroy_subject: '課題を削除しました！'
   date:
     abbr_day_names:
     - 日

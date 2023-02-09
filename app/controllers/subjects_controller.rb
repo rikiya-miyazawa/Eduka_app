@@ -30,6 +30,12 @@ class SubjectsController < ApplicationController
   def show
   end
 
+  def destroy
+    @subject.destroy
+    redirect_to educations_path(@subject.education_id),
+    notice: t('view.subjects.notice.destroy_subject')
+  end
+
   private
 
   def subject_params
