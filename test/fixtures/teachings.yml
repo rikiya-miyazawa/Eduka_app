@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2023-02-09
+  educator: MyString
+  title: MyString
+  content: MyText
+  advice: MyText
+  remarks: MyText
+  subject: one
+
+two:
+  date: 2023-02-09
+  educator: MyString
+  title: MyString
+  content: MyText
+  advice: MyText
+  remarks: MyText
+  subject: two
