@@ -3,6 +3,16 @@
 <%= t('view.share.page') %></h2>
 <p><%= notice %></p>
 
+<h3><%= t('view.statuses.purpose') %></h3>
+<%= @education.status.purpose %>
+<h4><%= t('view.statuses.education_period') %></h4>
+<%= @education.status.education_period %>
+<br>
+<br>
+<h4><%= t('view.statuses.created_date') %></h4>
+<%= @education.status.created_date %>
+<br>
+<br>
 
 <table>
 <tr>
@@ -24,6 +34,11 @@
   </tr>
 <% end %> 
 </table>
+
+<h4><%= t('view.statuses.remarks') %></h4>
+<%= @education.status.remarks %>
+<br>
+<br>
 
 <%= link_to t('helpers.back'), :back %>
 <%= link_to t('view.educations.index'), educations_path %>
