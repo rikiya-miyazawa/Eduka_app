@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <p>
+      マイページ
+      マイ教育ページ
+      社員一覧
+      <%= link_to t('view.navigation.logout'), destroy_user_session_path, method: :delete %>
+      管理者ページ
+      </p>
+    <% else %>
+      <p>
+      .Edukaとは 
+      メインメニュー
+      <%= link_to t('view.navigation.sign_up'), new_user_registration_path %>
+      <%= link_to t('view.navigation.login'), new_user_session_path %>
+      </p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
