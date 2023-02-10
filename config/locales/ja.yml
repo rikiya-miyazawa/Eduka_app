@@ -15,6 +15,8 @@ ja:
       destroy: '削除'
       conjunction: 'の'
       page: 'ページ'
+      from: 'から'
+      end: 'まで'
       confirm:
         destroy: '本当に削除しますか？'
     educations:
@@ -26,6 +28,11 @@ ja:
         create_education: '教育ページを作成しました！'
         update_education: '教育ページを編集しました！'
         destroy_education: '教育ページを削除しました！'
+    statuses:
+      purpose: '教育目的'
+      education_period: '教育期間'
+      created_date: '教育開始日'
+      remarks: '備考'
     subjects:
       subject: '課題'
       index: '課題一覧'

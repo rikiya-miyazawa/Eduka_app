@@ -20,6 +20,26 @@
     <br>
     <%= form.text_field :name %>
   </div>
+    <%= form.fields_for :status do |status| %>
+      <div class="status_purpose">
+        <%= status.label :purpose %>
+        <%= status.text_field :purpose %>
+      </div>
+      <div class="status_period">
+        <%= status.label :education_period %>
+        <%= status.date_select :education_period, include_blank: "" %>
+        <%= t('view.share.end') %>
+      </div>
+      <div class="status_created_date">
+        <%= status.label :created_date %>
+        <%= status.date_select :created_date, include_blank: "" %>
+        <%= t('view.share.from') %>
+      </div>
+      <div class="status_remarks">
+        <%= status.label :remarks %>
+        <%= status.text_area :remarks %>
+      </div>
+    <% end %>
   <%= form.submit t('helpers.submit.update') %>
 <% end %>
 <%= link_to t('helpers.back'), :back %>

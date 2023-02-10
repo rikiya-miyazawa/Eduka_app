@@ -7,6 +7,7 @@ class EducationsController < ApplicationController
 
   def new
     @education = Education.new
+    @education.status
   end
 
   def create
@@ -44,7 +45,8 @@ class EducationsController < ApplicationController
   private
 
   def education_params
-    params.require(:education).permit(:name)
+    params.require(:education).permit(:name, status_attributes: [:id, :purpose, :education_period, :created_date, :remarks, :_destroy])
+    #使えたら%i記法にする
   end
 
   def set_education

@@ -3,6 +3,7 @@ ja:
     models:
       #モデル名: 日本語モデル名
       education: 教育ページ
+      status: 教育ページ性質
       subject: 課題
       teaching: 教育内容
     attributes:
@@ -13,6 +14,11 @@ ja:
         #content: 内容
       education:
         name: 教育種類
+      status:
+        purpose: 教育目的
+        education_period: 教育期間
+        created_date: 開始日
+        remarks: 備考
       subject:
         name: 課題名
         status: 合格状況
