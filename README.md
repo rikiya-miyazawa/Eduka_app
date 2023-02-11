@@ -48,6 +48,7 @@
 $ git clone git@github.com:rikiya-miyazawa/Eduka_app.git
 $ cd Eduka_app
 $ bundle install
+$ yarn install
 $ rails db:create && rails db:migrate
 $ rails s
 ````
