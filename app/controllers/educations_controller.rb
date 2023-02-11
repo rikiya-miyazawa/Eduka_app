@@ -32,6 +32,10 @@ class EducationsController < ApplicationController
     end
   end
 
+  def list
+    @user = User.find(params[:id])
+  end
+
   def show
     @subjects = Subject.all
   end

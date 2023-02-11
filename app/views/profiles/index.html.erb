@@ -12,7 +12,7 @@
     <td><%= profile.name %></td>
     <td><%= profile.hire_date %></td>
     <td><%= profile.job %></td>
-    <td><%= link_to t('view.teachings.teaching'), educations_path %></td>
+    <td><%= link_to t('view.teachings.teaching'), list_education_path(profile.user.id) %></td>
 
   </tr>
 <% end %> 
