@@ -23,6 +23,8 @@ ja:
       login: 'ログイン'
       logout: 'ログアウト'
       sign_up: 'アカウント登録'
+    users:
+      name: '社員名'
     profiles:
       mypage: 'マイページ'
       name: '氏名'

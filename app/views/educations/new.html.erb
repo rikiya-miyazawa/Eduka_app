@@ -14,7 +14,11 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="user_id">
+    <%= form.label t('view.users.name') %>
+    <br>
+    <%= form.select :user_id,  User.all.collect { |user| [ user.profile.name, user.id ] }%>
+  </div>
   <div class="education_name">
     <%= form.label :name %>
     <br>
@@ -23,6 +27,7 @@
     <%= form.fields_for :status, @education.build_status do |status| %>
       <div class="status_purpose">
         <%= status.label :purpose %>
+        <br>
         <%= status.text_field :purpose %>
       </div>
       <div class="status_period">
@@ -37,6 +42,7 @@
       </div>
       <div class="status_remarks">
         <%= status.label :remarks %>
+        <br>
         <%= status.text_area :remarks %>
       </div>
     <% end %>
