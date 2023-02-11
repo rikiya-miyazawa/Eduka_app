@@ -35,5 +35,9 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#ENVでセキュリティ対策
+#security
 gem 'dotenv-rails'
+#log in
+gem 'devise'
+gem 'devise-i18n'
+gem 'rexml'

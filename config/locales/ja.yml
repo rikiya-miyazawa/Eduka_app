@@ -19,6 +19,10 @@ ja:
       end: 'まで'
       confirm:
         destroy: '本当に削除しますか？'
+    navigation:
+      login: 'ログイン'
+      logout: 'ログアウト'
+      sign_up: 'アカウント登録'
     educations:
       education: '教育ページ'
       new_education: '教育ページ作成'
