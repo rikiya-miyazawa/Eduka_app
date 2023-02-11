@@ -1,2 +1,15 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<h2><%= t('view.profiles.mypage') %></h2>
+
+<table>
+  <tr>
+    <th><%= t('view.profiles.name') %></th>
+    <th><%= t('view.profiles.hire_date') %></th>
+    <th><%= t('view.profiles.job') %></th>
+  </tr>
+
+  <tr>
+    <td><%= @user.profile.name %></td>
+    <td><%= @user.profile.hire_date %></td>
+    <td><%= @user.profile.job %></td>
+  </tr>
+</table>

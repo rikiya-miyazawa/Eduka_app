@@ -13,7 +13,7 @@
   <body>
     <% if user_signed_in? %>
       <p>
-      マイページ
+      <%= link_to t('view.profiles.mypage'),profile_path(current_user.id) %>
       マイ教育ページ
       社員一覧
       <%= link_to t('view.navigation.logout'), destroy_user_session_path, method: :delete %>
