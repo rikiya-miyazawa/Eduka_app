@@ -1,5 +1,6 @@
 class Teaching < ApplicationRecord
   belongs_to :subject
+  belongs_to :user
   validates :educator, presence: true,
                   length: { maximum: 100 }
   validates :title, presence: true,
