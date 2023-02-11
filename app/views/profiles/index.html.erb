@@ -1,2 +1,17 @@
-<h1>Profiles#index</h1>
-<p>Find me in app/views/profiles/index.html.erb</p>
+<h2><%= t('view.profiles.index') %></h2>
+
+<table>
+  <tr>
+    <th><%= t('view.profiles.name') %></th>
+    <th><%= t('view.profiles.hire_date') %></th>
+    <th><%= t('view.profiles.job') %></th>
+  </tr>
+
+  <% @profiles.each do |profile| %>
+  <tr>
+    <td><%= profile.name %></td>
+    <td><%= profile.hire_date %></td>
+    <td><%= profile.job %></td>
+  </tr>
+<% end %> 
+</table>
