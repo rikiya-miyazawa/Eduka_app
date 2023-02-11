@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :profiles, only: %i(index show)
-  resources :educations do
+  resources :educations, only: %i(new create edit update show destroy) do
     member do
       get 'list'
     end

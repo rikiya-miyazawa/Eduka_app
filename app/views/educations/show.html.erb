@@ -1,4 +1,5 @@
-<h2><%= t('view.share.conjunction') %>
+<h2><%= @education.user.profile.name %>
+<%= t('view.share.conjunction') %>
 <%= @education.name %>
 <%= t('view.share.page') %></h2>
 <p><%= notice %></p>
@@ -41,4 +42,4 @@
 <br>
 
 <%= link_to t('helpers.back'), :back %>
-<%= link_to t('view.educations.index'), educations_path %>
+<%= link_to t('view.educations.index'), list_education_path(@education.user.id) %>

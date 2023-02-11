@@ -1,10 +1,6 @@
 class EducationsController < ApplicationController
   before_action :set_education, only: %i(show edit update destroy)
 
-  def index
-    @educations = Education.all
-  end
-
   def new
     @education = Education.new
     @education.status
