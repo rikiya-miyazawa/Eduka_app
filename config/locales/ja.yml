@@ -28,6 +28,7 @@ ja:
       name: 氏名
       hire_date: 入社日
       job: 職種
+      edit: 'プロフィール編集'
     educations:
       education: '教育ページ'
       new_education: '教育ページ作成'
