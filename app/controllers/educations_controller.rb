@@ -9,7 +9,7 @@ class EducationsController < ApplicationController
   def create
     @education = Education.new(education_params)
     if @education.save
-      redirect_to educations_path, 
+      redirect_to list_education_path(@education.user.id), 
       notice: t('view.educations.notice.create_education')
     else
       render :new
@@ -21,7 +21,7 @@ class EducationsController < ApplicationController
 
   def update
     if @education.update(education_params)
-      redirect_to educations_path,
+      redirect_to list_education_path(@education.user.id),
       notice: t('view.educations.notice.update_education')
     else
       render :edit
@@ -38,7 +38,7 @@ class EducationsController < ApplicationController
 
   def destroy
     @education.destroy
-    redirect_to educations_path,
+    redirect_to list_education_path(@education.user.id),
     notice: t('view.educations.notice.destroy_education')
   end
 
