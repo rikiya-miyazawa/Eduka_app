@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       #モデル名: 日本語モデル名
+      user: ユーザー
+      profile: プロフィール
       education: 教育ページ
       status: 教育ページ性質
       subject: 課題
@@ -12,6 +14,12 @@ ja:
         #カラム名: 日本語カラム名
         #title: タイトル
         #content: 内容
+      user:
+        email: メールアドレス
+      profile:
+        name: 氏名
+        hire_date: 入社日
+        job: 職種
       education:
         name: 教育種類
       status:
