@@ -1,4 +1,5 @@
 class Education < ApplicationRecord
+  belongs_to :user
   has_one :status, dependent: :destroy
   has_many :subjects, dependent: :destroy
   validates :name, presence: true,
