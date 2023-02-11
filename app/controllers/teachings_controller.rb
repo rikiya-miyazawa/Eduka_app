@@ -39,7 +39,7 @@ class TeachingsController < ApplicationController
   private
 
   def teaching_params
-    params.require(:teaching).permit(:date, :educator, :title, :content, :advice, :remarks, :subject_id)
+    params.require(:teaching).permit(:date, :educator, :title, :content, :advice, :remarks, :user_id, :subject_id)
   end
 
   def set_teaching

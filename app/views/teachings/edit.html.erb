@@ -14,7 +14,12 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <div class="user_id">
+    <%= form.label t('view.users.name') %>
+    <br>
+    <%= form.select :user_id,  User.all.collect { |user| [ user.profile.name, user.id ] }%>
+  </div>
   <div class="teaching_date">
     <%= form.label :date %>
     <br>

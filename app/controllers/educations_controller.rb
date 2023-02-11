@@ -45,7 +45,7 @@ class EducationsController < ApplicationController
   private
 
   def education_params
-    params.require(:education).permit(:name, status_attributes: [:id, :purpose, :education_period, :created_date, :remarks, :_destroy])
+    params.require(:education).permit(:name, :user_id, status_attributes: [:id, :purpose, :education_period, :created_date, :remarks, :_destroy])
     #使えたら%i記法にする
   end
 
