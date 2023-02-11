@@ -39,7 +39,7 @@ class SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:subject).permit(:name, :status, :deadline, :education_id)
+    params.require(:subject).permit(:name, :status, :deadline, :user_id, :education_id)
   end
 
   def set_subject
