@@ -31,6 +31,12 @@ class DivisionsController < ApplicationController
     end
   end
 
+  def destroy
+    @division.destroy
+    redirect_to divisions_path,
+    notice: t('view.divisions.notice.destroy_division')
+  end
+
   private
 
   def division_params
