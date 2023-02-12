@@ -1,4 +1,5 @@
 class DivisionsController < ApplicationController
+  before_action :set_division, only: %i(edit update destroy)
 
   def index
     @divisions = Division.all
@@ -21,11 +22,22 @@ class DivisionsController < ApplicationController
   def edit
   end
 
+  def update
+    if @division.update(division_params)
+      redirect_to divisions_path,
+      notice: t('view.divisions.notice.update_division')
+    else
+      render :edit
+    end
+  end
+
   private
 
   def division_params
     params.require(:division).permit(:name)
   end
 
-
+  def set_division
+    @division = Division.find(params[:id])
+  end
 end
