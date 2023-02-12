@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'profiles#index'
   devise_for :users
   resources :profiles, only: %i(index show)
   resources :divisions, only: %i(index new create edit update destroy)
@@ -9,5 +10,4 @@ Rails.application.routes.draw do
   end
   resources :subjects, only: %i(new create edit update show destroy)
   resources :teachings, only: %i(new create edit update show destroy)
-  root 'educations#index'
 end
