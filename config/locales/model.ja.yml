@@ -4,6 +4,7 @@ ja:
       #モデル名: 日本語モデル名
       user: ユーザー
       profile: プロフィール
+      division: 配属先
       education: 教育ページ
       status: 教育ページ性質
       subject: 課題
@@ -20,6 +21,8 @@ ja:
         name: 氏名
         hire_date: 入社日
         job: 職種
+      division:
+        name: 配属先名
       education:
         name: 教育種類
       status:
