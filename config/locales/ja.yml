@@ -33,6 +33,8 @@ ja:
       edit: 'プロフィール編集'
       index: '社員一覧'
     divisions:
+      division: '配属先'
+      index: '配属先一覧'
       new_division: '配属先作成'
       notice:
         create_division: '配属先を作成しました！'

@@ -1,6 +1,7 @@
 class DivisionsController < ApplicationController
 
   def index
+    @divisions = Division.all
   end
 
   def new
@@ -26,5 +27,5 @@ class DivisionsController < ApplicationController
     params.require(:division).permit(:name)
   end
 
-  
+
 end

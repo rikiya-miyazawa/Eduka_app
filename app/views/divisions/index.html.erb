@@ -1,2 +1,18 @@
-<h1>Divisions#index</h1>
-<p>Find me in app/views/divisions/index.html.erb</p>
+<h2><%= t('view.divisions.index') %></h2>
+
+<table>
+<tr>
+    <th><%= t('view.divisions.division') %></th>
+    <th><%= link_to t('view.share.create'), new_division_path %></th>
+</tr>
+
+<% @divisions.each do |division| %>
+  <tr>
+    <td><%= division.name %></td>
+    <td><%= link_to t('view.share.edit'), edit_division_path(division.id) %></td>
+    <td><%= link_to t('view.share.destroy'), division_path(division.id),
+      method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+  </tr>
+<% end %> 
+</table>
+
