@@ -1,2 +1,25 @@
-<h1>Divisions#new</h1>
-<p>Find me in app/views/divisions/new.html.erb</p>
+<h2><%= t('view.divisions.new_division') %></h2>
+
+<%= form_with(model: @division, local: true) do |form| %>
+
+  <% if @division.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @division.errors.count %>
+      <%= t('errors.messages.count') %></h2>
+      <ul>
+
+      <% @division.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="division_name">
+    <%= form.label :name %>
+    <br>
+    <%= form.text_field :name %>
+  </div>
+  <%= form.submit t('helpers.submit.create') %>
+<% end %>
+<%= link_to t('helpers.back'), :back %>

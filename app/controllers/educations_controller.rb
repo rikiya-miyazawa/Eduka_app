@@ -46,7 +46,6 @@ class EducationsController < ApplicationController
 
   def education_params
     params.require(:education).permit(:name, :user_id, status_attributes: %i(id purpose education_period created_date remarks _destroy))
-    #使えたら%i記法にする
   end
 
   def set_education
