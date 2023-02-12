@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'divisions/new'
+  get 'divisions/edit'
+  get 'divisions/index'
   devise_for :users
   resources :profiles, only: %i(index show)
   resources :educations, only: %i(new create edit update show destroy) do
