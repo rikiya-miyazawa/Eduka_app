@@ -12,4 +12,5 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
           format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   accepts_nested_attributes_for :profile, allow_destroy: true, update_only: true
+  accepts_nested_attributes_for :affiliations, allow_destroy: true, update_only: true
 end
