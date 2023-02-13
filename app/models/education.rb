@@ -1,5 +1,6 @@
 class Education < ApplicationRecord
   belongs_to :user
+  belongs_to :division
   has_one :status, dependent: :destroy
   has_many :subjects, dependent: :destroy
   validates :name, presence: true,
