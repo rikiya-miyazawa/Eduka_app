@@ -20,6 +20,30 @@
 </table>
 
 
-<h4><%= t('view.assigns.add') %></h4>
+<h4><%= t('view.relationships.add') %></h4>
+
+<%= form_with(model: @division, local: true) do |form| %>
+
+  <% if @division.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @division.errors.count %>
+      <%= t('errors.messages.count') %></h2>
+      <ul>
+
+      <% @division.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="division_name">
+    <%= affiliation.label t('view.affiliations.affiliation') %>
+    <br>
+    <%= affiliation.select :division_id,  Division.all.collect { |division| [ division.name, division.id ] }%>
+  </div>
+  
+<% end %>
+
 
 <%= link_to t('view.profiles.edit'), edit_user_registration_path %>
