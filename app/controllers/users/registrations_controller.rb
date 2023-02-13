@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
     @user.profile
+    @user.affiliations.build
   end
 
   # POST /resource

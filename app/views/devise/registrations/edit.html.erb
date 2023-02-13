@@ -20,6 +20,13 @@
       <%= profile.text_field :job %>
     </div>
   <% end %>
+  <%= f.fields_for :affiliations do |affiliation| %>
+    <div class="division_name">
+      <%= affiliation.label t('view.affiliations.affiliation') %>
+      <br>
+      <%= affiliation.select :division_id,  Division.all.collect { |division| [ division.name, division.id ] }%>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

@@ -32,6 +32,18 @@ ja:
       job: '職種'
       edit: 'プロフィール編集'
       index: '社員一覧'
+    divisions:
+      division: '配属先'
+      index: '配属先一覧'
+      new_division: '配属先作成'
+      edit_division: '配属先編集'
+      notice:
+        create_division: '配属先を作成しました！'
+        update_division: '配属先を編集しました！'
+        destroy_division: '配属先を削除しました！'
+    affiliations:
+      affiliation: '所属'
+      choice: '所属を選択してください'
     educations:
       education: '教育ページ'
       new_education: '教育ページ作成'
