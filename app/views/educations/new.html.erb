@@ -19,6 +19,11 @@
     <br>
     <%= form.select :user_id,  User.all.collect { |user| [ user.profile.name, user.id ] }%>
   </div>
+  <div class="division_id">
+    <%= form.label t('view.affiliations.affiliation') %>
+    <br>
+    <%= form.select :division_id,  Division.all.collect { |division| [ division.name, division.id ] }%>
+  </div>
   <div class="education_name">
     <%= form.label :name %>
     <br>
