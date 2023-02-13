@@ -44,6 +44,8 @@ ja:
     affiliations:
       affiliation: '所属'
       choice: '所属を選択してください'
+    assigns:
+      add: '教育対象者を追加する'
     educations:
       education: '教育ページ'
       new_education: '教育ページ作成'
@@ -198,6 +200,7 @@ ja:
       create: 作成
       submit: 保存する
       update: 更新
+      add: 追加する
     back: 戻る
   number:
     currency:
