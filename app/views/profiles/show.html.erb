@@ -22,8 +22,9 @@
 <h4><%= t('view.relationships.subordinate') %></h4>
 <% @user.teaching.each do |subordinate| %>
   <tr>
-    <td><%= subordinate.profile.name %><br></td>
-    
+    <td><%= subordinate.profile.name %></td>
+    <td><%= link_to t('view.relationships.destroy'), relationship_path(choise_id(subordinate.id)),
+      method: :delete %></td>
   </tr>
 <% end %> 
 

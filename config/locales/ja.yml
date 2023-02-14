@@ -47,10 +47,11 @@ ja:
     relationships:
       superior: '教育担当'
       subordinate: '教育対象者'
+      destroy: '外す'
       add: '教育対象者を追加する'
       notice:
-        add_relationship: '教育対象者を追加しました'
-        destroy_relationship: '教育ページを削除しました！'
+        add_relationship: '教育対象者を追加しました！'
+        destroy_relationship: '教育対象者から外しました！'
         error_relationship: 'すでに追加されています'
     educations:
       education: '教育ページ'
