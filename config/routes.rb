@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :subjects, only: %i(new create edit update show destroy)
   resources :teachings, only: %i(new create edit update show destroy)
+  resources :relationships, only: %i(create)
 end

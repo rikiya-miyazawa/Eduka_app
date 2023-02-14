@@ -45,7 +45,12 @@ ja:
       affiliation: '所属'
       choice: '所属を選択してください'
     relationships:
+      subordinate: '教育対象者'
       add: '教育対象者を追加する'
+      notice:
+        add_relationship: '教育対象者を追加しました'
+        destroy_relationship: '教育ページを削除しました！'
+        error_relationship: 'すでに追加されています'
     educations:
       education: '教育ページ'
       new_education: '教育ページ作成'
