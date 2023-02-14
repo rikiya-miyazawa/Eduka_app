@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_13_005655) do
+ActiveRecord::Schema.define(version: 2023_02_13_091841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2023_02_13_005655) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "superior_id"
+    t.integer "subordinate_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subordinate_id"], name: "index_relationships_on_subordinate_id"
+    t.index ["superior_id", "subordinate_id"], name: "index_relationships_on_superior_id_and_subordinate_id", unique: true
+    t.index ["superior_id"], name: "index_relationships_on_superior_id"
   end
 
   create_table "statuses", force: :cascade do |t|

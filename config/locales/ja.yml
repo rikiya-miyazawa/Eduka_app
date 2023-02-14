@@ -44,6 +44,15 @@ ja:
     affiliations:
       affiliation: '所属'
       choice: '所属を選択してください'
+    relationships:
+      superior: '教育担当'
+      subordinate: '教育対象者'
+      destroy: '外す'
+      add: '教育対象者を追加する'
+      notice:
+        add_relationship: '教育対象者を追加しました！'
+        destroy_relationship: '教育対象者から外しました！'
+        error_relationship: 'すでに追加されています'
     educations:
       education: '教育ページ'
       new_education: '教育ページ作成'
@@ -198,6 +207,7 @@ ja:
       create: 作成
       submit: 保存する
       update: 更新
+      add: 追加する
     back: 戻る
   number:
     currency:
