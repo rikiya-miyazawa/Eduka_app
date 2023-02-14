@@ -5,8 +5,11 @@ class RelationshipsController < ApplicationController
   end
 
   def create
-    @relationship = current_user.superior_relationships.create(relationship_params)
-    if @relationship.save
+    @relationship = current_user.superior_relationships.new(relationship_params)
+    if @relationship.subordinate_id == current_user.id
+      redirect_to profile_path(current_user.id),
+      notice: t('view.relationships.notice.not_myself_relationship')
+    elsif @relationship.save
       redirect_to profile_path(current_user.id), 
       notice: t('view.relationships.notice.add_relationship')
     else

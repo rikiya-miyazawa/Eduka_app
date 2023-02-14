@@ -53,6 +53,8 @@ ja:
         add_relationship: '教育対象者を追加しました！'
         destroy_relationship: '教育対象者から外しました！'
         error_relationship: 'すでに追加されています'
+        not_myself_relationship: '自分は追加できません'
+
     educations:
       education: '教育ページ'
       new_education: '教育ページ作成'
