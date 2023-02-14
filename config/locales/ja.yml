@@ -45,6 +45,7 @@ ja:
       affiliation: '所属'
       choice: '所属を選択してください'
     relationships:
+      superior: '教育担当'
       subordinate: '教育対象者'
       add: '教育対象者を追加する'
       notice:

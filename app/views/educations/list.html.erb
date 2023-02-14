@@ -3,6 +3,14 @@
 <%= t('view.educations.index') %></h2>
 <p><%= notice %></p>
 <br>
+
+<h3><%= t('view.relationships.superior') %></h3>
+<% @user.taught.each do |superior| %>
+  <tr>
+    <td><%= superior.profile.name %><br></td>
+  </tr>
+<% end %> 
+
 <h3><%= t('view.educations.education') %>
 <%= link_to t('view.share.create'), new_education_path %></h3>
 

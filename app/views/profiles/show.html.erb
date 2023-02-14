@@ -19,6 +19,14 @@
   </tr>
 </table>
 
+<h4><%= t('view.relationships.subordinate') %></h4>
+<% @user.teaching.each do |subordinate| %>
+  <tr>
+    <td><%= subordinate.profile.name %><br></td>
+    
+  </tr>
+<% end %> 
+
 
 <h4><%= t('view.relationships.add') %></h4>
 
