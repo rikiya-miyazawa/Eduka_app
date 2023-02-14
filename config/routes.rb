@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'profiles#index'
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'users/registrations'}
   resources :profiles, only: %i(index show)
   resources :divisions, only: %i(index new create edit update destroy)
   resources :educations, only: %i(new create edit update show destroy) do
