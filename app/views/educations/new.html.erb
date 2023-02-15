@@ -1,7 +1,6 @@
 <h2><%= t('view.educations.new_education') %></h2>
 
 <%= form_with(model: @education, local: true) do |form| %>
-
   <% if @education.errors.any? %>
     <div id="error_explanation">
       <h2><%= @education.errors.count %>
@@ -15,14 +14,12 @@
     </div>
   <% end %>
   <div class="user_id">
-    <%= form.label t('view.users.name') %>
-    <br>
-    <%= form.select :user_id,  User.all.collect { |user| [ user.profile.name, user.id ] }%>
+    <%= User.find(params[:user_id]).profile.name %>
+    <%= form.hidden_field :user_id, :value => params[:user_id] %>
   </div>
   <div class="division_id">
-    <%= form.label t('view.affiliations.affiliation') %>
-    <br>
-    <%= form.select :division_id,  Division.all.collect { |division| [ division.name, division.id ] }%>
+    <%= Division.find(params[:division_id]).name %>
+    <%= form.hidden_field :division_id, :value => params[:division_id] %>
   </div>
   <div class="education_name">
     <%= form.label :name %>

@@ -2,6 +2,8 @@ class EducationsController < ApplicationController
   before_action :set_education, only: %i(show edit update destroy)
 
   def new
+    @user = User.find(params[:user_id])
+    @division = Division.find(params[:division_id])
     @education = Education.new
     @education.status
   end
