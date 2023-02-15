@@ -12,8 +12,10 @@
 <% end %> 
 
 <h3><%= t('view.educations.education') %>
-  <% @user.affiliation_divisions.each do |division| %>
-    <%= link_to t('view.share.create'), new_education_path(user_id: @user.id, division_id: division.id) %></h3>
+  <% if @user.taught.ids.to_s.include?(current_user.id.to_s) %>
+    <% @user.affiliation_divisions.each do |division| %>
+      <%= link_to t('view.share.create'), new_education_path(user_id: @user.id, division_id: division.id) %></h3>
+    <% end %>
   <% end %>
 
 <table>
@@ -21,9 +23,11 @@
   <tr>
     <td><%= education.name %></td>
     <td><%= link_to t('view.share.show'), education_path(education.id) %></td>
-    <td><%= link_to t('view.share.edit'), edit_education_path(education.id) %></td>
-    <td><%= link_to t('view.share.destroy'), education_path(education.id),
-      method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+    <% if @user.taught.ids.to_s.include?(current_user.id.to_s) %>
+      <td><%= link_to t('view.share.edit'), edit_education_path(education.id) %></td>
+      <td><%= link_to t('view.share.destroy'), education_path(education.id),
+        method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

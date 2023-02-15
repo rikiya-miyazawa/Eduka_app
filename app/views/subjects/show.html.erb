@@ -10,7 +10,9 @@
     <th><%= t('view.teachings.date') %></th>
     <th><%= t('view.teachings.educator') %></th>
     <th><%= t('view.teachings.title') %></th>
-    <th><%= link_to t('view.share.create'), new_teaching_path(subject_id: @subject.id, user_id: @subject.user.id) %></th>
+    <% if @subject.user.taught.ids.to_s.include?(current_user.id.to_s) %>
+      <th><%= link_to t('view.share.create'), new_teaching_path(subject_id: @subject.id, user_id: @subject.user.id) %></th>
+    <% end %>
 </tr>
 
 <% @subject.teachings.each do |teaching| %>
@@ -19,9 +21,11 @@
     <td><%= teaching.educator %></td>
     <td><%= teaching.title %></td>
     <td><%= link_to t('view.share.show'), teaching_path(teaching.id) %></td>
-    <td><%= link_to t('view.share.edit'), edit_teaching_path(teaching.id) %></td>
-    <td><%= link_to t('view.share.destroy'), teaching_path(teaching.id),
+    <% if teaching.user.taught.ids.to_s.include?(current_user.id.to_s) %>
+      <td><%= link_to t('view.share.edit'), edit_teaching_path(teaching.id) %></td>
+      <td><%= link_to t('view.share.destroy'), teaching_path(teaching.id),
       method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+    <% end %>
   </tr>
 <% end %> 
 </table>

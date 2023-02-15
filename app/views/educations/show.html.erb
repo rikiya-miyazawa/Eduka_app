@@ -22,7 +22,9 @@
     <th><%= t('view.subjects.subject') %></th>
     <th><%= t('view.subjects.status') %></th>
     <th><%= t('view.subjects.deadline') %></th>
-    <th><%= link_to t('view.share.create'), new_subject_path(education_id: @education.id, user_id: @education.user.id) %></th>
+    <% if @education.user.taught.ids.to_s.include?(current_user.id.to_s) %>
+      <th><%= link_to t('view.share.create'), new_subject_path(education_id: @education.id, user_id: @education.user.id) %></th>
+    <% end %>
 </tr>
 
 <% @education.subjects.each do |subject| %>
@@ -31,9 +33,11 @@
     <td><%= subject.status %></td>
     <td><%= subject.deadline %></td>
     <td><%= link_to t('view.share.show'), subject_path(subject.id) %></td>
-    <td><%= link_to t('view.share.edit'), edit_subject_path(subject.id) %></td>
-    <td><%= link_to t('view.share.destroy'), subject_path(subject.id),
-      method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+    <% if @education.user.taught.ids.to_s.include?(current_user.id.to_s) %>
+      <td><%= link_to t('view.share.edit'), edit_subject_path(subject.id) %></td>
+      <td><%= link_to t('view.share.destroy'), subject_path(subject.id),
+        method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+    <% end %>
   </tr>
 <% end %> 
 </table>

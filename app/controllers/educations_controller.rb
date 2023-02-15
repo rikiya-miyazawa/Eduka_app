@@ -3,9 +3,13 @@ class EducationsController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
-    @division = Division.find(params[:division_id])
-    @education = Education.new
-    @education.status
+    if @user.taught.ids.to_s.include?(current_user.id.to_s)
+      @education = Education.new
+      @education.status
+    else
+      redirect_to list_education_path(@user.id),
+      notice: t('view.educations.notice.not_new_education')
+    end
   end
 
   def create
@@ -19,6 +23,11 @@ class EducationsController < ApplicationController
   end
 
   def edit
+    if @education.user.taught.ids.to_s.include?(current_user.id.to_s)
+    else
+      redirect_to list_education_path(@education.user.id),
+      notice: t('view.educations.notice.not_edit_education')
+    end
   end
 
   def update
@@ -39,9 +48,14 @@ class EducationsController < ApplicationController
   end
 
   def destroy
-    @education.destroy
-    redirect_to list_education_path(@education.user.id),
-    notice: t('view.educations.notice.destroy_education')
+    if @education.user.taught.ids.to_s.include?(current_user.id.to_s)
+      @education.destroy
+      redirect_to list_education_path(@education.user.id),
+      notice: t('view.educations.notice.destroy_education')
+    else
+      redirect_to list_education_path(@education.user.id),
+      notice: t('view.educations.notice.not_destroy_education')
+    end
   end
 
   private

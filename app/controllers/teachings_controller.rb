@@ -2,7 +2,13 @@ class TeachingsController < ApplicationController
   before_action :set_teaching, only: %i(show edit update destroy)
 
   def new
-    @teaching = Teaching.new
+    @user = User.find(params[:user_id])
+    if @user.taught.ids.to_s.include?(current_user.id.to_s)
+      @teaching = Teaching.new
+    else
+      redirect_to subject_path(params[:subject_id]),
+      notice: t('view.share.notice.not_new')
+    end
   end
 
   def create
@@ -16,6 +22,11 @@ class TeachingsController < ApplicationController
   end
 
   def edit
+    if @teaching.user.taught.ids.to_s.include?(current_user.id.to_s)
+    else
+      redirect_to subject_path(@teaching.subject.id),
+      notice: t('view.share.notice.not_edit')
+    end
   end
 
   def update
@@ -31,9 +42,14 @@ class TeachingsController < ApplicationController
   end
 
   def destroy
-    @teaching.destroy
-    redirect_to subject_path(@teaching.subject_id),
-    notice: t('view.teachings.notice.destroy_teaching')
+    if @teaching.user.taught.ids.to_s.include?(current_user.id.to_s)
+      @teaching.destroy
+      redirect_to subject_path(@teaching.subject_id),
+      notice: t('view.teachings.notice.destroy_teaching')
+    else
+      redirect_to subject_path(@teaching.subject.id),
+      notice: t('view.share.notice.not_destroy')
+    end
   end
 
   private
