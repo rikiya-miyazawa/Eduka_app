@@ -2,7 +2,13 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: %i(show edit update destroy)
 
   def new
-    @subject = Subject.new
+    @user = User.find(params[:user_id])
+    if @user.taught.ids.to_s.include?(current_user.id.to_s)
+      @subject = Subject.new
+    else
+      redirect_to education_path(params[:education_id]),
+      notice: t('view.share.notice.not_new')
+    end
   end
 
   def create
@@ -16,6 +22,11 @@ class SubjectsController < ApplicationController
   end
 
   def edit
+    if @subject.user.taught.ids.to_s.include?(current_user.id.to_s)
+    else
+      redirect_to education_path(@subject.education.id),
+      notice: t('view.share.notice.not_edit')
+    end
   end
 
   def update
@@ -31,9 +42,14 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
-    @subject.destroy
-    redirect_to education_path(@subject.education_id),
-    notice: t('view.subjects.notice.destroy_subject')
+    if @subject.user.taught.ids.to_s.include?(current_user.id.to_s)
+      @subject.destroy
+      redirect_to education_path(@subject.education_id),
+      notice: t('view.subjects.notice.destroy_subject')
+    else
+      redirect_to education_path(@subject.education.id),
+      notice: t('view.share.notice.not_destroy')
+    end
   end
 
   private

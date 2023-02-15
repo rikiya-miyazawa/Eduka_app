@@ -17,6 +17,10 @@ ja:
       page: 'ページ'
       from: 'から'
       end: 'まで'
+      notice:
+        not_new: '教育担当者以外は作成できません'
+        not_edit: '教育担当者以外は編集できません'
+        not_destroy: '教育担当者以外は削除できません'
       confirm:
         destroy: '本当に削除しますか？'
     navigation:
@@ -63,7 +67,9 @@ ja:
         create_education: '教育ページを作成しました！'
         update_education: '教育ページを編集しました！'
         destroy_education: '教育ページを削除しました！'
-        not_new_education: '教育担当者以外作成できません'
+        not_new_education: '教育担当者以外は作成できません'
+        not_edit_education: '教育担当者以外は編集できません'
+        not_destroy_education: '教育担当者以外は削除できません'
     statuses:
       purpose: '教育目的'
       education_period: '教育期間'
