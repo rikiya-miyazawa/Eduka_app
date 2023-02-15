@@ -13,12 +13,14 @@
       </ul>
     </div>
   <% end %>
-  <div class="user_id">
+  <div class="user_name">
+    <%= t('view.users.name') %>
+    <br>
     <%= User.find(params[:user_id]).profile.name %>
     <%= form.hidden_field :user_id, :value => params[:user_id] %>
   </div>
+  <br>
   <div class="division_id">
-    <%= Division.find(params[:division_id]).name %>
     <%= form.hidden_field :division_id, :value => params[:division_id] %>
   </div>
   <div class="education_name">
