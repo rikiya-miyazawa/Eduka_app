@@ -15,38 +15,48 @@
     </div>
   <% end %>
 
-  <div class="user_id">
-    <%= form.label t('view.users.name') %>
+  <div class="user_name">
+    <%= t('view.users.name') %>
     <br>
-    <%= form.select :user_id,  User.all.collect { |user| [ user.profile.name, user.id ] }%>
+    <%= User.find(params[:user_id]).profile.name %>
+    <%= form.hidden_field :user_id, :value => params[:user_id] %>
   </div>
+  <br>
   <div class="teaching_date">
     <%= form.label :date %>
     <br>
     <%= form.date_select :date %>
   </div>
+  <br>
   <div class="teaching_educator">
     <%= form.label :educator %>
     <%= form.text_field :educator %>
   </div>
-  <div class="subject_id">
-    <%= form.label t('view.subjects.subject') %>
-    <%= form.select :subject_id,  Subject.all.collect { |p| [ p.name, p.id ] }%>
+  <br>
+  <div class="subject_name">
+    <%= t('view.subjects.subject') %>
+    <br>
+    <%= Subject.find(params[:subject_id]).name %>
+    <%= form.hidden_field :subject_id, :value => params[:subject_id] %>
   </div>
+  <br>
   <div class="teaching_title">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
+  <br>
   <div class="teaching_content">
     <%= form.label :content %>
     <br>
     <%= form.text_area :content %>
   </div>
+  <br>
   <div class="teaching_advice">
     <%= form.label :advice %>
     <br>
     <%= form.text_area :advice %>
   </div>
+  <br>
   <div class="teaching_remarks">
     <%= form.label :remarks %>
     <br>
