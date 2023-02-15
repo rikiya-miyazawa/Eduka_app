@@ -12,7 +12,9 @@
 <% end %> 
 
 <h3><%= t('view.educations.education') %>
-<%= link_to t('view.share.create'), new_education_path %></h3>
+  <% @user.affiliation_divisions.each do |division| %>
+    <%= link_to t('view.share.create'), new_education_path(user_id: @user.id, division_id: division.id) %></h3>
+  <% end %>
 
 <table>
 <% @user.educations.each do |education| %>

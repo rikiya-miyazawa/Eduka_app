@@ -54,7 +54,6 @@ ja:
         destroy_relationship: '教育対象者から外しました！'
         error_relationship: 'すでに追加されています'
         not_myself_relationship: '自分は追加できません'
-
     educations:
       education: '教育ページ'
       new_education: '教育ページ作成'
@@ -64,6 +63,7 @@ ja:
         create_education: '教育ページを作成しました！'
         update_education: '教育ページを編集しました！'
         destroy_education: '教育ページを削除しました！'
+        not_new_education: '教育担当者以外作成できません'
     statuses:
       purpose: '教育目的'
       education_period: '教育期間'

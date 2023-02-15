@@ -15,11 +15,12 @@
     </div>
   <% end %>
   
-  <div class="user_id">
-    <%= form.label t('view.users.name') %>
+  <div class="user_name">
+    <%= t('view.users.name') %>
     <br>
-    <%= form.select :user_id,  User.all.collect { |user| [ user.profile.name, user.id ] }%>
+    <%= @teaching.user.profile.name %>
   </div>
+  <br>
   <div class="teaching_date">
     <%= form.label :date %>
     <br>
@@ -29,10 +30,12 @@
     <%= form.label :educator %>
     <%= form.text_field :educator %>
   </div>
-  <div class="subject_id">
-    <%= form.label t('view.subjects.subject') %>
-    <%= form.select :subject_id,  Subject.all.collect { |p| [ p.name, p.id ] }%>
+  <div class="subject_name">
+    <%= t('view.subjects.subject') %>
+    <br>
+    <%= @teaching.subject.name %>
   </div>
+  <br>
   <div class="teaching_title">
     <%= form.label :title %>
     <%= form.text_field :title %>

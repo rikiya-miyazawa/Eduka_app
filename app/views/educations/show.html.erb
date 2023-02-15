@@ -22,7 +22,7 @@
     <th><%= t('view.subjects.subject') %></th>
     <th><%= t('view.subjects.status') %></th>
     <th><%= t('view.subjects.deadline') %></th>
-    <th><%= link_to t('view.share.create'), new_subject_path %></th>
+    <th><%= link_to t('view.share.create'), new_subject_path(education_id: @education.id, user_id: @education.user.id) %></th>
 </tr>
 
 <% @education.subjects.each do |subject| %>

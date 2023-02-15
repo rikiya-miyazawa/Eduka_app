@@ -18,10 +18,6 @@
     <h4><%= t('view.users.name') %></h4>
     <p><%= @education.user.profile.name %></p>
   </div>
-  <div class="division_id">
-    <%= form.label t('view.affiliations.affiliation') %>
-    <br>
-    <%= form.select :division_id,  Division.all.collect { |division| [ division.name, division.id ] }%>
   </div>
   <div class="education_name">
     <%= form.label :name %>

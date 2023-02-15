@@ -10,7 +10,7 @@
     <th><%= t('view.teachings.date') %></th>
     <th><%= t('view.teachings.educator') %></th>
     <th><%= t('view.teachings.title') %></th>
-    <th><%= link_to t('view.share.create'), new_teaching_path %></th>
+    <th><%= link_to t('view.share.create'), new_teaching_path(subject_id: @subject.id, user_id: @subject.user.id) %></th>
 </tr>
 
 <% @subject.teachings.each do |teaching| %>
