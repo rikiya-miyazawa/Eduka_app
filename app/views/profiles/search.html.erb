@@ -1,12 +1,5 @@
-<h2><%= t('view.profiles.index') %></h2>
-<h4><%= t('view.searches.search') %></h4>
-<%= search_form_for @q, url: search_profiles_path do |f| %>
-  <%= f.label :name_or_job_cont, t('view.users.name') %>
-  <%= f.search_field :name_or_job_cont %>
-  <%= f.submit t('view.searches.search') %>
-<% end %>
+<h3><%=t('view.searches.result')%></h3>
 
-<br>
 <table>
   <tr>
     <th><%= t('view.profiles.name') %></th>
@@ -15,7 +8,7 @@
     <th><%= t('view.profiles.job') %></th>
   </tr>
 
-  <% @profiles.each do |profile| %>
+  <% @results.each do |profile| %>
   <tr>
     <td><%= profile.name %></td>
     <% profile.user.affiliation_divisions.each do |division| %>

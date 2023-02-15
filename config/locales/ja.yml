@@ -103,6 +103,7 @@ ja:
         destroy_teaching: '教育内容を削除しました！'
     searches:
       search: '検索'
+      result: '検索結果'
   date:
     abbr_day_names:
     - 日
