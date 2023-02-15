@@ -6,7 +6,11 @@ Rails.application.routes.draw do
       get 'list'
     end
   end
-  resources :profiles, only: %i(index show)
+  resources :profiles, only: %i(index show) do
+    collection do
+      get 'search'
+    end
+  end
   resources :divisions, only: %i(index new create edit update destroy)
   resources :subjects, only: %i(new create edit update show destroy)
   resources :teachings, only: %i(new create edit update show destroy)
