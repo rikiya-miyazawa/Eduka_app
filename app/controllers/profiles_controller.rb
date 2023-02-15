@@ -16,6 +16,6 @@ class ProfilesController < ApplicationController
   private
 
   def set_q
-    @q = User.ransack(params[:q])
+    @q = Profile.ransack(params[:q])
   end
 end
