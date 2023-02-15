@@ -1,4 +1,12 @@
 <h2><%= t('view.profiles.index') %></h2>
+<br>
+<h1><%= t('view.searches.search') %></h1>
+<%= search_form_for @q, url: search_profiles_path do |f| %>
+  <%= f.label :name_cont, t('view.users.name') %>
+  <%= f.search_field :name_cont %>
+  <br>
+  <%= f.submit t('view.searches.search') %>
+<% end %>
 
 <table>
   <tr>
