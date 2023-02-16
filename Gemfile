@@ -43,3 +43,5 @@ gem 'devise-i18n'
 gem 'rexml'
 #search
 gem 'ransack'
+#admin
+gem 'rails_admin', '~> 3.0'

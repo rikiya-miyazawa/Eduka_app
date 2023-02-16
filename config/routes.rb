@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'profiles#index'
   devise_for :users, controllers: {registrations: 'users/registrations'} 
   resources :educations, only: %i(new create edit update show destroy) do
