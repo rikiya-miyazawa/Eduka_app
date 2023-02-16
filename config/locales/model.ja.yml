@@ -9,6 +9,10 @@ ja:
       status: 教育ページ性質
       subject: 課題
       teaching: 教育内容
+      affiliation: 配属状況
+      relationship: 教育状況
+      role: 権限
+      position: 権限付与状況
     attributes:
       #モデル名
       #blog:
