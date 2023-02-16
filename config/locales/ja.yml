@@ -29,8 +29,10 @@ ja:
       sign_up: 'アカウント登録'
     guests:
       login: 'ゲストユーザーとしてログインしました'
+      admin_login: '管理者ゲストユーザーとしてログインしました'
       guest: 'ゲスト'
       guest_login: 'ゲストログイン'
+      admin_guest_login: '管理者ゲストログイン'
     admins:
       admin: '管理者画面'
     users:
