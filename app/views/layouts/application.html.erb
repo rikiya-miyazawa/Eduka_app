@@ -25,6 +25,7 @@
       メインメニュー
       <%= link_to t('view.navigation.sign_up'), new_user_registration_path %>
       <%= link_to t('view.navigation.login'), new_user_session_path %>
+      <%= link_to t('view.guests.guest_login'), users_guest_sign_in_path, method: :post %>
       </p>
     <% end %>
 

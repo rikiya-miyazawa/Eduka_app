@@ -27,6 +27,10 @@ ja:
       login: 'ログイン'
       logout: 'ログアウト'
       sign_up: 'アカウント登録'
+    guests:
+      login: 'ゲストユーザーとしてログインしました'
+      guest: 'ゲスト'
+      guest_login: 'ゲストログイン'
     users:
       name: '社員名'
     profiles:
