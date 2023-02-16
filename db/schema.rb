@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_16_060742) do
+ActiveRecord::Schema.define(version: 2023_02_16_060941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2023_02_16_060742) do
     t.bigint "division_id", null: false
     t.index ["division_id"], name: "index_educations_on_division_id"
     t.index ["user_id"], name: "index_educations_on_user_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "role_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_positions_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_positions_on_user_id_and_role_id", unique: true
+    t.index ["user_id"], name: "index_positions_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -125,6 +135,8 @@ ActiveRecord::Schema.define(version: 2023_02_16_060742) do
   add_foreign_key "affiliations", "users"
   add_foreign_key "educations", "divisions"
   add_foreign_key "educations", "users"
+  add_foreign_key "positions", "roles"
+  add_foreign_key "positions", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "statuses", "educations"
   add_foreign_key "subjects", "educations"
