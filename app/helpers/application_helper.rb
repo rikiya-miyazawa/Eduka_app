@@ -7,4 +7,11 @@ module ApplicationHelper
       ''
     end
   end
+
+  def admin_and_manager(rolename)
+    case role_name
+    when 'admin'
+      
+    end
+  end
 end
