@@ -14,19 +14,17 @@
     <% if user_signed_in? %>
       <p>
       <%= link_to t('view.profiles.mypage'), profile_path(current_user.id) %>
-      マイ教育ページ
+      <%= link_to t('view.educations.my_education'), list_education_path(current_user.id) %>
       <%= link_to t('view.profiles.index'), profiles_path %>
       <%= link_to t('view.navigation.logout'), destroy_user_session_path, method: :delete %>
       <%= render_links_for_role(current_user.roles.first.try(:name)) %>
       </p>
     <% else %>
       <p>
-      .Edukaとは 
-      メインメニュー
-      <%= link_to t('view.navigation.sign_up'), new_user_registration_path %>
+      <%= link_to t('view.tops.top'), tops_path %>
+      <%= link_to t('view.tops.menu'), menu_tops_path %>
       <%= link_to t('view.navigation.login'), new_user_session_path %>
-      <%= link_to t('view.guests.guest_login'), users_guest_sign_in_path, method: :post %>
-      <%= link_to t('view.guests.admin_guest_login'), users_admin_guest_sign_in_path, method: :post %>
+      <%= link_to t('view.navigation.sign_up'), new_user_registration_path %>
       </p>
     <% end %>
 
