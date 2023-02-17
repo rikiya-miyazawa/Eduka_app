@@ -18,6 +18,14 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  #AWS EC2 Deploy
+  gem 'capistrano', '3.16.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
@@ -47,3 +55,5 @@ gem 'ransack'
 gem 'rails_admin', '~> 3.0'
 #authority
 gem 'cancancan'
+#AWS EC2 Deploy
+gem 'unicorn'
