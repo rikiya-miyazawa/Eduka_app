@@ -3,7 +3,7 @@ class SubjectsController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
-    if @user.taught.ids.to_s.include?(current_user.id.to_s)
+    if @user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) 
       @subject = Subject.new
     else
       redirect_to education_path(params[:education_id]),
@@ -22,7 +22,7 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    if @subject.user.taught.ids.to_s.include?(current_user.id.to_s)
+    if @subject.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) 
     else
       redirect_to education_path(@subject.education.id),
       notice: t('view.share.notice.not_edit')
@@ -42,7 +42,7 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
-    if @subject.user.taught.ids.to_s.include?(current_user.id.to_s)
+    if @subject.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id)))
       @subject.destroy
       redirect_to education_path(@subject.education_id),
       notice: t('view.subjects.notice.destroy_subject')

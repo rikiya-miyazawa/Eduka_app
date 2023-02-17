@@ -3,7 +3,7 @@ class EducationsController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
-    if @user.taught.ids.to_s.include?(current_user.id.to_s)
+    if @user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) 
       @education = Education.new
       @education.status
     else
@@ -23,7 +23,7 @@ class EducationsController < ApplicationController
   end
 
   def edit
-    if @education.user.taught.ids.to_s.include?(current_user.id.to_s)
+    if @education.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @education.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id)))
     else
       redirect_to list_education_path(@education.user.id),
       notice: t('view.educations.notice.not_edit_education')
@@ -48,7 +48,7 @@ class EducationsController < ApplicationController
   end
 
   def destroy
-    if @education.user.taught.ids.to_s.include?(current_user.id.to_s)
+    if @education.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @education.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id)))
       @education.destroy
       redirect_to list_education_path(@education.user.id),
       notice: t('view.educations.notice.destroy_education')
