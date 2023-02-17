@@ -20,4 +20,9 @@ Rails.application.routes.draw do
   resources :subjects, only: %i(new create edit update show destroy)
   resources :teachings, only: %i(new create edit update show destroy)
   resources :relationships, only: %i(create destroy)
+  resources :tops, only: %i(index) do
+    collection do
+      get 'menu'
+    end
+  end
 end

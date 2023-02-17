@@ -23,6 +23,9 @@ ja:
         not_destroy: '教育担当者以外は削除できません'
       confirm:
         destroy: '本当に削除しますか？'
+    tops:
+      top: '.Edukaとは?'
+      menu: 'メインメニュー'
     navigation:
       login: 'ログイン'
       logout: 'ログアウト'
@@ -68,6 +71,7 @@ ja:
         not_myself_relationship: '自分は追加できません'
     educations:
       education: '教育ページ'
+      my_education: 'マイ教育ページ'
       new_education: '教育ページ作成'
       edit_education: '教育ページ編集'
       index: '教育ページ一覧'
