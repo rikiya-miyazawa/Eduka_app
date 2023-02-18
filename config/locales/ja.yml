@@ -34,6 +34,7 @@ ja:
       login: 'ゲストユーザーとしてログインしました'
       admin_login: '管理者ゲストユーザーとしてログインしました'
       guest: 'ゲスト'
+      admin_guest: '管理者ゲスト'
       guest_login: 'ゲストログイン'
       admin_guest_login: '管理者ゲストログイン'
     admins:

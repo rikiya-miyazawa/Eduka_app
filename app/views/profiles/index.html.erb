@@ -1,4 +1,5 @@
 <h2><%= t('view.profiles.index') %></h2>
+<p><%= notice %></p>
 <h4><%= t('view.searches.search') %></h4>
 <%= search_form_for @q, url: search_profiles_path do |f| %>
   <%= f.label :name_or_job_cont, t('view.users.name') %>
@@ -16,15 +17,16 @@
   </tr>
 
   <% @profiles.each do |profile| %>
-  <tr>
-    <td><%= profile.name %></td>
-    <% profile.user.affiliation_divisions.each do |division| %>
-      <td><%= division.name%></td>
+    <% unless profile.name == 'ゲスト' || profile.name == '管理者ゲスト'%>
+      <tr>
+        <td><%= profile.name %></td>
+        <% profile.user.affiliation_divisions.each do |division| %>
+          <td><%= division.name%></td>
+        <% end %> 
+        <td><%= profile.hire_date %></td>
+        <td><%= profile.job %></td>
+        <td><%= link_to t('view.teachings.teaching'), list_education_path(profile.user.id) %></td>
+      </tr>
     <% end %> 
-    <td><%= profile.hire_date %></td>
-    <td><%= profile.job %></td>
-    <td><%= link_to t('view.teachings.teaching'), list_education_path(profile.user.id) %></td>
-
-  </tr>
-<% end %> 
+  <% end %> 
 </table>
