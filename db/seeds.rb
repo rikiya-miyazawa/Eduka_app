@@ -18,6 +18,14 @@ users = [
   User.create!(
     email: "iguchisatomi@example.com", 
     password: "111111",
+  ),
+  User.create!(
+    email: "guest@example.com", 
+    password: "111111",
+  ),
+  User.create!(
+    email: "admin_guest@example.com", 
+    password: "111111",
   )
 ] 
 
@@ -87,6 +95,16 @@ User.find(5).profile.update!(
   name: '井口里美',
   hire_date: '2014-9-1',
   job: '副店長',
+)
+User.find(6).profile.update!(
+  name: 'ゲスト',
+  hire_date: '',
+  job: '',
+)
+User.find(7).profile.update!(
+  name: '管理者ゲスト',
+  hire_date: '',
+  job: '',
 )
 
 educations = [

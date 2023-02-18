@@ -1,4 +1,41 @@
 RailsAdmin.config do |config|
+
+  config.model 'User' do
+    field :id
+    field :profile_name
+    field :email
+  end
+
+  config.model 'Education' do
+    field :user_name
+    field :name
+    field :subjects
+  end
+
+  config.model 'Relationship' do
+    field :superior_name
+    field :subordinate_name
+  end
+
+  config.model 'Position' do
+    field :user_name
+    field :role
+  end
+
+  config.model 'Subject' do
+    field :name
+    field :status
+    field :deadline
+    field :education
+    field :user_name
+    field :teachings
+  end
+
+  config.model 'Affiliation' do
+    field :user_name
+    field :division
+  end
+
   config.asset_source = :webpacker
 
   ### Popular gems integration

@@ -5,4 +5,7 @@ class Subject < ApplicationRecord
   validates :name, presence: true,
                   length: { maximum: 100 }
   enum status: { "未": false, '合格': true }
+  def user_name
+    user.profile.name
+  end
 end
