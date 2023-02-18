@@ -11,23 +11,47 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <p>
-      <%= link_to t('view.profiles.mypage'), profile_path(current_user.id) %>
-      <%= link_to t('view.educations.my_education'), list_education_path(current_user.id) %>
-      <%= link_to t('view.profiles.index'), profiles_path %>
-      <%= link_to t('view.navigation.logout'), destroy_user_session_path, method: :delete %>
-      <%= render_links_for_role(current_user.roles.first.try(:name)) %>
-      </p>
-    <% else %>
-      <p>
-      <%= link_to t('view.tops.top'), tops_path %>
-      <%= link_to t('view.tops.menu'), menu_tops_path %>
-      <%= link_to t('view.navigation.login'), new_user_session_path %>
-      <%= link_to t('view.navigation.sign_up'), new_user_registration_path %>
-      </p>
-    <% end %>
-
+    <header>
+      <div class="logo">
+        <%= link_to(profiles_path) do %>
+          <%= image_tag("Eduka-logo.png", width: "80", height: "80") %>
+        <% end %>
+      </div>
+      <nav>
+        <ul>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to t('view.profiles.mypage'), profile_path(current_user.id) %>
+            </li>
+            <li>
+              <%= link_to t('view.educations.my_education'), list_education_path(current_user.id) %>
+            </li>
+            <li>
+              <%= link_to t('view.profiles.index'), profiles_path %>
+            </li>
+            <li>
+              <%= link_to t('view.navigation.logout'), destroy_user_session_path, method: :delete %>
+            </li>
+            <li>
+              <%= render_links_for_role(current_user.roles.first.try(:name)) %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to t('view.tops.top'), tops_path %>
+            </li>
+            <li>
+              <%= link_to t('view.tops.menu'), menu_tops_path %>
+            </li>
+            <li>
+              <%= link_to t('view.navigation.login'), new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to t('view.navigation.sign_up'), new_user_registration_path %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
