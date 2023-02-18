@@ -1,7 +1,6 @@
 ja:
   activerecord:
     models:
-      #モデル名: 日本語モデル名
       user: ユーザー
       profile: プロフィール
       division: 配属先
@@ -14,17 +13,15 @@ ja:
       role: 権限
       position: 権限付与状況
     attributes:
-      #モデル名
-      #blog:
-        #カラム名: 日本語カラム名
-        #title: タイトル
-        #content: 内容
       user:
         email: メールアドレス
       profile:
         name: 氏名
         hire_date: 入社日
         job: 職種
+      relationship:
+        superior_id: 教育担当者
+        subordinate_id: 教育対象者
       division:
         name: 配属先名
       education:

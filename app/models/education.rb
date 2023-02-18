@@ -6,4 +6,7 @@ class Education < ApplicationRecord
   validates :name, presence: true,
                   length: { maximum: 100 }
   accepts_nested_attributes_for :status, allow_destroy: true, update_only: true
+  def user_name
+    user.profile.name
+  end
 end
