@@ -11,27 +11,31 @@
   letter-spacing: 0.15em;
 }
 
+.profile-index-notice {
+  color: #898989;
+}
+
 #search-form {
   width: 200px;
   height: 25px;
   margin: 20px 0px;
 }
 
-.table-container {
+.profile-table-container {
   display: flex;
   justify-content: center;
 }
 
-.table-container tr {
+.profile-table-container tr {
   text-align: left;
 }
 
-.table-container th {
+.profile-table-container th {
   font-size: 22px;
   padding-bottom: 20px;
 }
 
-.table-container td {
+.profile-table-container td {
   padding-right: 60px;
   padding-bottom: 4px;
 }
