@@ -1,32 +1,40 @@
-<h2><%= t('view.profiles.index') %></h2>
-<p><%= notice %></p>
-<h4><%= t('view.searches.search') %></h4>
-<%= search_form_for @q, url: search_profiles_path do |f| %>
-  <%= f.label :name_or_job_cont, t('view.users.name') %>
-  <%= f.search_field :name_or_job_cont %>
-  <%= f.submit t('view.searches.search') %>
-<% end %>
+<div class="profile-index-container">
+  <div class="profile-index-title">
+    <h2><%= t('view.profiles.index') %></h2>
+  </div>
+  <div class="profile-index-notice">
+    <p><%= notice %></p>
+  </div>
+  <div class="search_index-form">
+    <%= search_form_for @q, url: search_profiles_path do |f| %>
+      <%= f.search_field :name_or_job_cont, placeholder: '名前 または 職種', id: 'search-form'%>
+      <%= f.submit t('view.searches.search') %>
+    <% end %>
+  </div>
 
-<br>
-<table>
-  <tr>
-    <th><%= t('view.profiles.name') %></th>
-    <th><%= t('view.affiliations.affiliation') %></th>
-    <th><%= t('view.profiles.hire_date') %></th>
-    <th><%= t('view.profiles.job') %></th>
-  </tr>
-
-  <% @profiles.each do |profile| %>
-    <% unless profile.name == 'ゲスト' || profile.name == '管理者ゲスト'%>
+  <br>
+  <div class="table-container">
+    <table>
       <tr>
-        <td><%= profile.name %></td>
-        <% profile.user.affiliation_divisions.each do |division| %>
-          <td><%= division.name%></td>
-        <% end %> 
-        <td><%= profile.hire_date %></td>
-        <td><%= profile.job %></td>
-        <td><%= link_to t('view.teachings.teaching'), list_education_path(profile.user.id) %></td>
+        <th><%= t('view.profiles.name') %></th>
+        <th><%= t('view.affiliations.affiliation') %></th>
+        <th><%= t('view.profiles.hire_date') %></th>
+        <th><%= t('view.profiles.job') %></th>
       </tr>
-    <% end %> 
-  <% end %> 
-</table>
+
+      <% @profiles.each do |profile| %>
+        <% unless profile.name == 'ゲスト' || profile.name == '管理者ゲスト'%>
+          <tr>
+            <td><%= profile.name %></td>
+            <% profile.user.affiliation_divisions.each do |division| %>
+              <td><%= division.name%></td>
+            <% end %> 
+            <td><%= profile.hire_date %></td>
+            <td><%= profile.job %></td>
+            <td id="education-path"><%= link_to t('view.teachings.teaching'), list_education_path(profile.user.id) %></td>
+          </tr>
+        <% end %> 
+      <% end %> 
+    </table>
+  </div>
+</div>

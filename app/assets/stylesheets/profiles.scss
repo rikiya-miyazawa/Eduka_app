@@ -1,3 +1,46 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.profile-index-container {
+  text-align: center;
+}
+
+.profile-index-title {
+  font-size: 20px;
+  letter-spacing: 0.15em;
+}
+
+#search-form {
+  width: 200px;
+  height: 25px;
+  margin: 20px 0px;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.table-container tr {
+  text-align: left;
+}
+
+.table-container th {
+  font-size: 22px;
+  padding-bottom: 20px;
+}
+
+.table-container td {
+  padding-right: 60px;
+  padding-bottom: 4px;
+}
+
+#education-path a {
+  color: #6a1917;
+  text-decoration: none;
+}
+
+#education-path a:hover {
+  text-decoration: underline;
+}
