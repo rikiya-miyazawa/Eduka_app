@@ -1,40 +1,38 @@
 <div class="devise-container">
-<div class="signup-container">
-  <div class="signup-title">
-    <h2><%= t('.sign_up') %></h2>
-  </div>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <%= f.fields_for :profile, @user.build_profile do |profile| %>
-    <div class="field">
-      <br>
-      <%= profile.text_field :name, placeholder: 'name', id: 'signup-name-form' %>
+  <div class="signup-container">
+    <div class="signup-title">
+      <h2><%= t('.sign_up') %></h2>
     </div>
-  <% end %>
-  <div class="signup-field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,  placeholder: 'email', id: 'email-form' %>
-  </div>
-  <%= f.fields_for :affiliations, @user.affiliations.build do |affiliation| %>
-    <div class="field">
-      <br>
-        <%= affiliation.select :division_id,  Division.all.collect { |division| [ division.name, division.id ] }, { prompt: t('view.affiliations.choice') }, id: 'signup-division-form' %>
-    </div>
-  <% end %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "new-password" , placeholder: 'password(6字以上)', id: 'password-form' %>
-  </div>
+      <%= f.fields_for :profile, @user.build_profile do |profile| %>
+        <div class="field">
+          <br>
+          <%= profile.text_field :name, placeholder: 'name', id: 'signup-name-form' %>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" , placeholder: 'password(確認用)', id: 'password-form' %>
+      <div class="signup-field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,  placeholder: 'email', id: 'email-form' %>
+      </div>
+      <%= f.fields_for :affiliations, @user.affiliations.build do |affiliation| %>
+        <div class="field">
+          <br>
+            <%= affiliation.select :division_id,  Division.all.collect { |division| [ division.name, division.id ] }, { prompt: t('view.affiliations.choice') }, id: 'signup-division-form' %>
+        </div>
+      <% end %>
+      
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "new-password" , placeholder: 'password(6字以上)', id: 'password-form' %>
+      </div>
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" , placeholder: 'password(確認用)', id: 'password-form' %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'create', id: 'create-submit' %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit 'create', id: 'create-submit' %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-</div>
 </div>

@@ -1,45 +1,47 @@
-<h2><%= t('view.profiles.mypage') %></h2>
-<p><%= notice %></p>
-
-<table>
-  <tr>
-    <th><%= t('view.profiles.name') %></th>
-    <th><%= t('view.affiliations.affiliation') %></th>
-    <th><%= t('view.profiles.hire_date') %></th>
-    <th><%= t('view.profiles.job') %></th>
-  </tr>
-
-  <tr>
-    <td><%= @user.profile.name %></td>
-    <% @user.affiliation_divisions.each do |division| %>
-      <td><%= division.name%></td>
-    <% end %> 
-    <td><%= @user.profile.hire_date %></td>
-    <td><%= @user.profile.job %></td>
-  </tr>
-</table>
-
-<h4><%= t('view.relationships.subordinate') %></h4>
-<% @user.teaching.each do |subordinate| %>
-  <tr>
-    <td><%= subordinate.profile.name %></td>
-    <td><%= link_to t('view.relationships.destroy'), relationship_path(choise_id(subordinate.id)),
-      method: :delete %></td>
-  </tr>
-<% end %> 
-
-
-<h4><%= t('view.relationships.add') %></h4>
-
-<%= form_with(model: @relationship, url: {controller: 'relationships', action: 'create' }, local: true) do |form| %>
-
-  <div class="subordinate_name">
-    <%= form.label t('view.relationships.subordinate') %>
-    <br>
-    <%= form.select :subordinate_id,  User.all.collect { |user| [ user.profile.name, user.id ] }%>
+<div class="mypage-container">
+  <h2><%= t('view.profiles.mypage') %></h2>
+  <div class="profile-notice">
+    <p><%= notice %></p>
   </div>
-  <%= form.submit t('helpers.submit.add') %>
-<% end %>
+  <div class="mypage-table-container">
+    <table>
+      <tr>
+        <th><%= t('view.profiles.name') %></th>
+        <th><%= t('view.affiliations.affiliation') %></th>
+        <th><%= t('view.profiles.hire_date') %></th>
+        <th><%= t('view.profiles.job') %></th>
+      </tr>
+      <tr>
+        <td><%= @user.profile.name %></td>
+        <% @user.affiliation_divisions.each do |division| %>
+          <td><%= division.name%></td>
+        <% end %> 
+        <td><%= @user.profile.hire_date %></td>
+        <td><%= @user.profile.job %></td>
 
-
-<%= link_to t('view.profiles.edit'), edit_user_registration_path %>
+        <td id="edit-profile"><%= link_to t('view.profiles.edit'), edit_user_registration_path %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="relationship-container">
+    <div class="subordinate">
+      <h4><%= t('view.relationships.subordinate') %></h4>
+      <% @user.teaching.each do |subordinate| %>
+        <p><%= subordinate.profile.name %>
+        <%= link_to t('view.relationships.destroy'), relationship_path(choise_id(subordinate.id)),
+          method: :delete %></p>
+      <% end %> 
+    </div>
+    <div class="add-subordinate">
+      <h4><%= t('view.relationships.add') %></h4>
+      <%= form_with(model: @relationship, url: {controller: 'relationships', action: 'create' }, local: true) do |form| %>
+        <div class="subordinate-name">
+          <%= form.select :subordinate_id,  User.all.collect { |user| [ user.profile.name, user.id ] } , { prompt: t('view.relationships.subordinate') }, id: 'subordinate-form' %>
+        </div>
+        <div class="subordinate-submit">
+          <%= form.submit t('helpers.submit.add') %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

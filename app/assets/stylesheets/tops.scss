@@ -16,11 +16,13 @@
   transform: translate(-50%, -50%);
   overflow: auto;
   height: 70vh;
+  display: flex;
+  justify-content: center;
 }
 
 .eduka p {
   font-size: 13px;
-  text-align: center;
+  text-align: left;
 }
 
 .menu-container {

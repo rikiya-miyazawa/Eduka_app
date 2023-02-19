@@ -1,23 +1,27 @@
-<h3><%=t('view.searches.result')%></h3>
+<div class="profile-index-container">
+  <div class="profile-index-title">
+    <h3><%=t('view.searches.result')%></h3>
+  </div>
+  <div class="profile-table-container">
+    <table>
+      <tr>
+        <th><%= t('view.profiles.name') %></th>
+        <th><%= t('view.affiliations.affiliation') %></th>
+        <th><%= t('view.profiles.hire_date') %></th>
+        <th><%= t('view.profiles.job') %></th>
+      </tr>
 
-<table>
-  <tr>
-    <th><%= t('view.profiles.name') %></th>
-    <th><%= t('view.affiliations.affiliation') %></th>
-    <th><%= t('view.profiles.hire_date') %></th>
-    <th><%= t('view.profiles.job') %></th>
-  </tr>
-
-  <% @results.each do |profile| %>
-  <tr>
-    <td><%= profile.name %></td>
-    <% profile.user.affiliation_divisions.each do |division| %>
-      <td><%= division.name%></td>
+      <% @results.each do |profile| %>
+      <tr>
+        <td><%= profile.name %></td>
+        <% profile.user.affiliation_divisions.each do |division| %>
+          <td><%= division.name%></td>
+        <% end %> 
+        <td><%= profile.hire_date %></td>
+        <td><%= profile.job %></td>
+        <td id="education-path"><%= link_to t('view.teachings.teaching'), list_education_path(profile.user.id) %></td>
+      </tr>
     <% end %> 
-    <td><%= profile.hire_date %></td>
-    <td><%= profile.job %></td>
-    <td><%= link_to t('view.teachings.teaching'), list_education_path(profile.user.id) %></td>
-
-  </tr>
-<% end %> 
-</table>
+    </table>
+  </div>
+</div>
