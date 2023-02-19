@@ -1,3 +1,51 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.top_logo {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.eduka {
+  position: absolute;
+  top: 72%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  height: 70vh;
+}
+
+.eduka p {
+  font-size: 13px;
+  text-align: center;
+}
+
+.menu_container {
+  text-align: center;
+}
+
+.mainmenu h1 {
+  font-size: 40px;
+  letter-spacing: 0.15em;
+}
+
+.notice {
+  color: #898989;
+}
+
+.menu_link {
+  margin-top: 35px;
+}
+
+.menu_link p a {
+  color: black;
+  text-decoration: none;
+}
+
+.menu_link p a:hover{
+  color: #6a1917;
+  text-decoration: underline;
+}
