@@ -65,3 +65,12 @@ footer p {
   font-size:12px;
   /* font-family: 'Caveat', cursive; */
 }
+
+#error_explanation {
+  color: #898989;
+  padding-bottom: 20px;
+}
+
+#error_explanation h2 {
+  font-size: 18px;
+}

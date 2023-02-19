@@ -1,0 +1,32 @@
+.devise-container {
+  text-align: center;
+}
+
+.forgot-title  h2 {
+  font-size: 25px;
+  letter-spacing: 0.15em;
+  padding-bottom: 70px;
+}
+
+#forgot-form {
+  background-color: #eee9e6;
+  width: 300px;
+  height: 30px;
+}
+
+.forgot-actions {
+  margin-left: 80px;
+}
+
+#forgot-submit {
+  color: black;
+  background-color: #eee9e6;
+  border-bottom: 5px solid #d7d0cb;
+}
+
+#forgot-submit:hover {
+  color: black;
+  background: #d7d0cb;
+  cursor: pointer;
+  cursor: hand;
+}

@@ -1,0 +1,38 @@
+.signup-container {
+  overflow: auto;
+  height: 70vh;
+}
+
+.signup-title  h2 {
+  font-size: 30px;
+  letter-spacing: 0.15em;
+  padding-bottom: 20px;
+}
+
+#signup-name-form {
+  background-color: #eee9e6;
+  width: 300px;
+  height: 30px;
+}
+
+#signup-division-form {
+  background-color: #eee9e6;
+  width: 306px;
+  height: 33px;
+  margin-top: 5px;
+}
+
+#create-submit {
+  color: black;
+  background-color: #eee9e6;
+  border-bottom: 5px solid #d7d0cb;
+  margin-left: 255px;
+}
+
+#create-submit:hover {
+  color: black;
+  background-color: #d7d0cb;
+  cursor: pointer;
+  cursor: hand;
+}
+

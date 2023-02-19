@@ -1,0 +1,68 @@
+.devise-container {
+  text-align: center;
+}
+
+.login-title  h2 {
+  font-size: 40px;
+  letter-spacing: 0.15em;
+  padding-bottom: 30px;
+}
+
+.login-notice p {
+  color: #898989;
+  padding-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 30px;
+}
+
+#email-form {
+  background-color: #eee9e6;
+  width: 300px;
+  height: 30px;
+}
+
+#password-form {
+  background-color: #eee9e6;
+  width: 300px;
+  height: 30px;
+}
+
+.remember-field {
+  margin-bottom: 30px;
+  margin-right: 148px;
+}
+
+.login-actions {
+  margin-left: 240px;
+  margin-bottom: 10px;
+}
+
+#login-submit {
+  color: black;
+  background-color: #eee9e6;
+  border-bottom: 5px solid #d7d0cb;
+}
+
+#login-submit:hover {
+  color: black;
+  background: #d7d0cb;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.forgot {
+  margin-right: 123px;
+}
+
+.forgot a {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot a:hover {
+  color: #6a1917;
+  text-decoration: underline;
+}
