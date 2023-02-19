@@ -36,3 +36,51 @@
   cursor: hand;
 }
 
+.profile-edit-title {
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  padding-bottom: 20px;
+}
+
+.user-edit-container {
+  width: 100%;
+  text-align: center;
+  overflow: auto;
+  height: 70vh;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.profile-edit-form {
+  display: inline-block;
+  text-align: left;
+  margin-left: 250px;
+}
+
+.profile-edit {
+  margin-bottom: 20px;
+}
+
+#profile-edit-formsize {
+  width: 200px;
+  height: 20px;
+}
+
+.profile-edit-form i {
+  font-size: 13px;
+}
+
+#profile-edit-actions {
+  margin-left: 164px;
+}
+
+#profile-edit-backlink a {
+  margin-left: 168px;
+  color: #6a1917;
+  text-decoration: none;
+  background-color: #e5d7d7;
+}
+
+#profile-edit-backlink a:hover {
+  text-decoration: underline;
+}
