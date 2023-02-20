@@ -17,7 +17,8 @@ class SubjectsController < ApplicationController
       redirect_to education_path(@subject.education_id), 
       notice: t('view.subjects.notice.create_subject')
     else
-      render :new
+      redirect_to education_path(@subject.education_id),
+      notice: t('view.subjects.notice.not_blrank')
     end
   end
 
