@@ -1,43 +1,43 @@
-<h2><%= t('view.subjects.edit_subject') %></h2>
-<%= form_with(model: @subject, local: true) do |form| %>
+<div class="subject-container">
+  <div class="subject-form-title">
+    <h2><%= t('view.subjects.edit_subject') %></h2>
+  </div>
+  <%= form_with(model: @subject, local: true) do |form| %>
 
-  <% if @subject.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @subject.errors.count %>
-      <%= t('errors.messages.count') %></h2>
-      <ul>
+    <% if @subject.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @subject.errors.count %>
+        <%= t('errors.messages.count') %></h2>
+        <ul>
 
-      <% @subject.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <% @subject.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="subject-username">
+      <h4><%= t('view.users.name') %></h4>
+      <p><%= @subject.user.profile.name %></P>
+    </div>
+    <div class="subject-block" >
+      <h4 id="subject-name"><%= form.label :name %></h4>
+      <p><%= form.text_field :name ,id:"subject-form"%></p>
+    </div>
+    <div class="subject-block">
+      <p><%= form.label :status %>
+      <%= form.select :status, Subject.statuses.keys %></p>
+    </div>
+    <div class="subject-block">
+      <p><%= form.label :deadline %>
+      <%= form.date_select :deadline, include_blank: ""%></p>
+    </div>
+    <div class="subject-block">
+      <p id="subject-submit"><%= form.submit t('helpers.submit.update') %></p>
     </div>
   <% end %>
-  
-  <div class="user_name">
-    <%= t('view.users.name') %>
-    <br>
-    <%= @subject.user.profile.name %>
-  </div>
-  <br>
-  <div class="subject_name">
-    <%= form.label :name %>
-    <br>
-    <%= form.text_field :name %>
-  </div>
-  <div class="subject_status">
-    <%= form.label :status %>
-    <%= form.select :status, Subject.statuses.keys %>
-  </div>
-  <div class="subject_deadline">
-    <%= form.label :deadline %>
-    <%= form.date_select :deadline, include_blank: ""%>
-  </div>
-  <div class="education_id">
-    <%= form.label t('view.educations.education') %>
-    <%= form.select :education_id,  Education.all.collect { |p| [ p.name, p.id ] }%>
-  </div>
-
-  <%= form.submit t('helpers.submit.update') %>
-<% end %>
-  <%= link_to t('helpers.back'), :back %>
+    <div class="subject-block">
+      <p id="subject-link"><%= link_to t('helpers.back'), :back %></p>
+    </div>
+</div>

@@ -1,51 +1,58 @@
-<h2><%= @education.user.profile.name %>
-<%= t('view.share.conjunction') %>
-<%= @education.name %>
-<%= t('view.share.page') %></h2>
-<p><%= notice %></p>
+<div class="education-show-container">
+  <h2><%= @education.user.profile.name %>
+    <%= t('view.share.conjunction') %>
+    <%= @education.name %>
+    <%= t('view.share.page') %></h2>
+  <div class="education-notice">
+    <p><%= notice %></p>
+  </div>
+  <div class="show-purpose">
+    <h3><%= t('view.statuses.purpose') %></h3>
+    <p><%= @education.status.purpose %></p>
+  </div>
+  <div class="show-created-date">
+    <h4><%= t('view.statuses.created_date') %></h4>
+    <p><%= @education.status.created_date %>
+    <%= t('view.share.from') %></p>
+  </div>
+  <div class="show-education-period">
+  <h4><%= t('view.statuses.education_period') %></h4>
+    <p><%= @education.status.education_period %>
+    <%= t('view.share.end') %></p>
+  </div>
+  <div class="education-show-table">
+    <table>
+      <tr>
+        <th><%= t('view.subjects.subject') %></th>
+        <th><%= t('view.subjects.status') %></th>
+        <th><%= t('view.subjects.deadline') %></th>
+        <% if @education.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @education.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
+          <th><%= link_to t('view.share.create'), new_subject_path(education_id: @education.id, user_id: @education.user.id) %></th>
+        <% end %>
+        <th></th>
+      </tr>
 
-<h3><%= t('view.statuses.purpose') %></h3>
-<%= @education.status.purpose %>
-<h4><%= t('view.statuses.education_period') %></h4>
-<%= @education.status.education_period %>
-<%= t('view.share.end') %>
-<br>
-<br>
-<h4><%= t('view.statuses.created_date') %></h4>
-<%= @education.status.created_date %>
-<%= t('view.share.from') %>
-<br>
-<br>
-
-<table>
-<tr>
-    <th><%= t('view.subjects.subject') %></th>
-    <th><%= t('view.subjects.status') %></th>
-    <th><%= t('view.subjects.deadline') %></th>
-    <% if @education.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @education.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
-      <th><%= link_to t('view.share.create'), new_subject_path(education_id: @education.id, user_id: @education.user.id) %></th>
-    <% end %>
-</tr>
-
-<% @education.subjects.each do |subject| %>
-  <tr>
-    <td><%= subject.name %></td>
-    <td><%= subject.status %></td>
-    <td><%= subject.deadline %></td>
-    <td><%= link_to t('view.share.show'), subject_path(subject.id) %></td>
-    <% if @education.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @education.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
-      <td><%= link_to t('view.share.edit'), edit_subject_path(subject.id) %></td>
-      <td><%= link_to t('view.share.destroy'), subject_path(subject.id),
-        method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
-    <% end %>
-  </tr>
-<% end %> 
-</table>
-
-<h4><%= t('view.statuses.remarks') %></h4>
-<%= @education.status.remarks %>
-<br>
-<br>
-
-<%= link_to t('helpers.back'), :back %>
-<%= link_to t('view.educations.index'), list_education_path(@education.user.id) %>
+      <% @education.subjects.each do |subject| %>
+        <tr>
+          <td><%= subject.name %></td>
+          <td><%= subject.status %></td>
+          <td><%= subject.deadline %></td>
+          <td><%= link_to t('view.share.show'), subject_path(subject.id) %></td>
+          <% if @education.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @education.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
+            <td><%= link_to t('view.share.edit'), edit_subject_path(subject.id) %></td>
+            <td><%= link_to t('view.share.destroy'), subject_path(subject.id),
+              method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+          <% end %>
+        </tr>
+      <% end %> 
+    </table>
+  </div>
+  <div class="show-remarks">
+    <h4><%= t('view.statuses.remarks') %></h4>
+    <%= @education.status.remarks %>
+  </div>
+  <div class="education-show-link">
+    <p><%= link_to t('helpers.back'), :back %></p>
+    <p><%= link_to t('view.educations.index'), list_education_path(@education.user.id) %></p>
+  </div>
+</div>

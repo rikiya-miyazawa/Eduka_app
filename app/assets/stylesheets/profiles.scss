@@ -4,11 +4,13 @@
 
 .profile-index-container {
   text-align: center;
+  height: auto;
+  padding-bottom: 50px;
 }
 
 .profile-index-title {
   font-size: 20px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.4em;
 }
 
 .profile-notice {
@@ -50,8 +52,18 @@
   text-decoration: underline;
 }
 
+//mypage
+
 .mypage-container {
   text-align: center;
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.mypage-container h2 {
+  font-size: 20px;
+  letter-spacing: 0.4em;
+  padding-bottom: 20px;
 }
 
 .mypage-table-container {
@@ -79,7 +91,6 @@
   display: inline-block;
   overflow: auto;
   height: 70vh;
-  // margin-right: 300px;
 }
 
 .subordinate {

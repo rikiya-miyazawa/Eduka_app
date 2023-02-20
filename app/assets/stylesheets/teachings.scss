@@ -1,3 +1,110 @@
 // Place all the styles related to the teachings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//new & edit
+.teaching-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: auto;
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.teaching-form-title {
+  font-size: 17px;
+  letter-spacing: 0.15em;
+  padding-bottom: 5px;
+}
+
+.teaching-form-block {
+  padding-bottom: 20px;
+}
+
+.teaching-form-block h4 {
+  font-size: 18px;
+}
+
+.teaching-form-block p {
+  font-size: 18px;
+}
+
+.teaching-form-date {
+  padding-bottom: 25px;
+}
+
+#teaching-form {
+  width: 300px;
+  height: 20px;
+}
+
+#teaching-area {
+  width: 302px;
+  height: 80px;
+}
+
+.teaching-form-submit {
+  width: 302px;
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+.teaching-form-link {
+  width: 302px;
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+.teaching-form-link a {
+  color: #6a1917;
+  text-decoration: none;
+  background-color: #e5d7d7;
+}
+
+.teaching-form-link a:hover {
+  text-decoration: underline;
+}
+
+//show
+.teaching-show-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: auto;
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.teaching-show-title {
+  font-size: 17px;
+  letter-spacing: 0.15em;
+  padding-bottom: 50px;
+  width: 700px;
+  padding-left: 200px;
+  text-align: left;
+}
+
+.teaching-content {
+  text-align: left;
+  width: 700px;
+  padding-bottom: 50px;
+  padding-left: 200px;
+}
+
+.teaching-link {
+  text-align: right;
+  width: 700px;
+}
+
+.teaching-link a {
+  color: #6a1917;
+  text-decoration: none;
+  background-color: #e5d7d7;
+}
+
+.teaching-link a:hover {
+  text-decoration: underline;
+}
