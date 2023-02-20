@@ -1,51 +1,58 @@
-<h2><%= t('view.educations.edit_education') %></h2>
+<div class="education-container">
+  <h2><%= t('view.educations.edit_education') %></h2>
 
-<%= form_with(model: @education, local: true) do |form| %>
+  <%= form_with(model: @education, local: true) do |form| %>
 
-  <% if @education.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @education.errors.count %>
-      <%= t('errors.messages.count') %></h2>
-      <ul>
+    <% if @education.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @education.errors.count %>
+        <%= t('errors.messages.count') %></h2>
+        <ul>
 
-      <% @education.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="user_name">
-    <h4><%= t('view.users.name') %></h4>
-    <p><%= @education.user.profile.name %></p>
-  </div>
-  </div>
-  <div class="education_name">
-    <%= form.label :name %>
-    <br>
-    <%= form.text_field :name %>
-  </div>
-    <%= form.fields_for :status do |status| %>
-      <div class="status_purpose">
-        <%= status.label :purpose %>
-        <br>
-        <%= status.text_field :purpose %>
-      </div>
-      <div class="status_period">
-        <%= status.label :education_period %>
-        <%= status.date_select :education_period, include_blank: "" %>
-        <%= t('view.share.end') %>
-      </div>
-      <div class="status_created_date">
-        <%= status.label :created_date %>
-        <%= status.date_select :created_date, include_blank: "" %>
-        <%= t('view.share.from') %>
-      </div>
-      <div class="status_remarks">
-        <%= status.label :remarks %>
-        <br>
-        <%= status.text_area :remarks %>
+        <% @education.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
       </div>
     <% end %>
-  <%= form.submit t('helpers.submit.update') %>
-<% end %>
-<%= link_to t('helpers.back'), :back %>
+
+    <div class="education-username">
+      <h4><%= t('view.users.name') %></h4><br>
+      <p><%= @education.user.profile.name %></p>
+    </div>
+    <br>
+    <div class="education-block">
+      <%= form.label :name %>
+      <br>
+      <%= form.text_field :name ,id:"education-form"%>
+    </div>
+      <%= form.fields_for :status do |status| %>
+        <div class="education-block">
+          <%= status.label :purpose%>
+          <br>
+          <%= status.text_area :purpose, id:"education-area" %>
+        </div>
+        <div class="education-block">
+          <%= status.label :created_date %>
+          <%= status.date_select :created_date, include_blank: "" %>
+          <%= t('view.share.from') %>
+        </div>
+        <div class="education-block" >
+          <%= status.label :education_period %>
+          <%= status.date_select :education_period, include_blank: "" %>
+          <%= t('view.share.end') %>
+        </div>
+        <div class="education-block">
+          <%= status.label :remarks %>
+          <br>
+          <%= status.text_area :remarks, id:"education-area" %>
+        </div>
+      <% end %>
+    <div class="education-block">
+      <p id="education-create"><%= form.submit t('helpers.submit.update') %></p>
+    </div>
+  <% end %>
+  <div id="education-link" >
+    <%= link_to t('helpers.back'), :back %>
+  </div>
+</div>

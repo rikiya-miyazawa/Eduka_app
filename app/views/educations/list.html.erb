@@ -1,33 +1,47 @@
-<h2><%= @user.profile.name %>
-<%= t('view.share.conjunction') %>
-<%= t('view.educations.index') %></h2>
-<p><%= notice %></p>
-<br>
+<div class="education-index-container">
+  <div class="education-index-title">
+    <h2><%= @user.profile.name %>
+    <%= t('view.share.conjunction') %>
+    <%= t('view.educations.index') %></h2>
+  </div>
+    <p class="education-notice"><%= notice %></p>
+  <br>
+  <div class="education-index-table">
+    <table>
+      <tr>
+        <th><%= t('view.relationships.superior') %></th>
+          <% @user.taught.each do |superior| %>
+      </tr>
+      <tr>
+        <td><%= superior.profile.name %><br></td>
+      </tr>
+      <% end %> 
+    </table>
+  </div>
+  <div class="education-index-table2">
+    <table>
+      <tr>
+        <th id="education-page"><%= t('view.educations.education') %></th>
+          <% if @user.taught.ids.include?(current_user.id) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
 
-<h3><%= t('view.relationships.superior') %></h3>
-<% @user.taught.each do |superior| %>
-  <tr>
-    <td><%= superior.profile.name %><br></td>
-  </tr>
-<% end %> 
+            <% @user.affiliation_divisions.each do |division| %>
+              <th class="education-index-link"><%= link_to t('view.share.create'), new_education_path(user_id: @user.id, division_id: division.id) %></th>
+            <% end %>
+          <% end %>
+      </tr>
+  
+      <% @user.educations.each do |education| %>
+      <tr>
+        <td><%= education.name %></td>
+        <td class="education-index-link"><%= link_to t('view.share.show'), education_path(education.id) %></td>
+        <% if @user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
 
-<h3><%= t('view.educations.education') %>
-  <% if @user.taught.ids.include?(current_user.id) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
-    <% @user.affiliation_divisions.each do |division| %>
-      <%= link_to t('view.share.create'), new_education_path(user_id: @user.id, division_id: division.id) %></h3>
-    <% end %>
-  <% end %>
-
-<table>
-<% @user.educations.each do |education| %>
-  <tr>
-    <td><%= education.name %></td>
-    <td><%= link_to t('view.share.show'), education_path(education.id) %></td>
-    <% if @user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
-      <td><%= link_to t('view.share.edit'), edit_education_path(education.id) %></td>
-      <td><%= link_to t('view.share.destroy'), education_path(education.id),
-        method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
+        <td class="education-index-link"><%= link_to t('view.share.edit'), edit_education_path(education.id) %></td>
+        <td class="education-index-link"><%= link_to t('view.share.destroy'), education_path(education.id),
+          method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+  <div>
+</div>
