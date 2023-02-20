@@ -25,7 +25,7 @@
     <div class="education-block" > 
       <%= form.label :name %>
       <br>
-      <%= form.text_field :name, id:"education-form"%>
+      <%= form.text_field :name, id:"education-form" %>
     </div>
       <%= form.fields_for :status, @education.build_status do |status| %>
         <div class="education-block" >
@@ -43,7 +43,7 @@
           <%= status.date_select :education_period, include_blank: "" %>
           <%= t('view.share.end') %>
         </div>
-        <div class="education-block" >
+        <div class="education-block">
           <%= status.label :remarks %>
           <br>
           <%= status.text_area :remarks, id:"education-area" %>
@@ -53,7 +53,7 @@
       <p id="education-create"><%= form.submit t('helpers.submit.create') %></p>
     </div>
   <% end %>
-  <div id="education-link" >
+  <div id="education-link">
     <%= link_to t('helpers.back'), :back %>
   </div>
 </div>

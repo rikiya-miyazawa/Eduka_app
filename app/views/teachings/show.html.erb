@@ -1,16 +1,22 @@
-
-<h3><%= t('view.teachings.title') %> : <%= @teaching.title %></h3>
-<h3><%= t('view.teachings.content') %></h3>
-<%= @teaching.content %>
-<br>
-<br>
-<h3><%= t('view.teachings.advice') %></h3>
-<%= @teaching.advice %>
-<br>
-<br>
-<h3><%= t('view.teachings.remarks') %></h3>
-<%= @teaching.remarks %>
-<br>
-<br>
-<%= link_to t('helpers.back'), :back %>
-<%= link_to t('view.teachings.index'), subject_path(@teaching.subject_id) %>
+<div class="teaching-show-container">
+  <div class="teaching-show-title">
+    <h3><%= t('view.teachings.title') %></h3>
+    <p><%= @teaching.title %></p>
+  </div>
+  <div class="teaching-content">
+    <h3><%= t('view.teachings.content') %></h3>
+    <p><%= @teaching.content %></p>
+  </div>
+  <div class="teaching-content">
+    <h3><%= t('view.teachings.advice') %></h3>
+    <p><%= @teaching.advice %></p>
+  </div>
+  <div class="teaching-content">
+    <h3><%= t('view.teachings.remarks') %></h3>
+    <p><%= @teaching.remarks %></p>
+  </div>
+  <div class="teaching-link">
+    <p><%= link_to t('helpers.back'), :back %></p>
+    <p><%= link_to t('view.teachings.index'), subject_path(@teaching.subject_id) %></p>
+  </div>
+</div>
