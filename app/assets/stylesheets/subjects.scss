@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+//new & edit
+
 .subject-container {
   display: flex;
   justify-content: center;
@@ -87,4 +89,64 @@
 
 #subject-name {
   font-size: 18px;
+}
+
+//show
+
+.subject-show-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: auto;
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.subject-show-title {
+  font-size: 17px;
+  letter-spacing: 0.15em;
+  padding-bottom: 15px;
+}
+
+.subject-notice {
+  color: #898989;
+  padding-bottom: 20px;
+}
+
+.subject-show-table {
+  text-align: left;
+  width: 1000px;
+  margin-left: 500px;
+  margin-bottom: 30px;
+}
+
+.subject-show-table th {
+  padding-right: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.subject-show-table th a {
+  color: #6a1917;
+  text-decoration: none;
+  background-color: #e5d7d7;
+}
+
+.subject-show-table th a:hover{
+  text-decoration: underline;
+}
+
+.subject-show-table td {
+  padding-right: 20px;
+}
+
+.subject-show-table td a {
+  color: #6a1917;
+  text-decoration: none;
+  background-color: #e5d7d7;
+}
+
+.subject-show-table td a:hover {
+  text-decoration: underline;
 }
