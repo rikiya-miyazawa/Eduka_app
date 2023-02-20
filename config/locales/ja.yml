@@ -83,6 +83,7 @@ ja:
         not_new_education: '教育担当者以外は作成できません'
         not_edit_education: '教育担当者以外は編集できません'
         not_destroy_education: '教育担当者以外は削除できません'
+        not_blrank: '教育種類, 教育目的は空欄にはできません'
     statuses:
       purpose: '教育目的'
       education_period: '教育期間'
@@ -99,6 +100,7 @@ ja:
         create_subject: '課題を作成しました！'
         update_subject: '課題を編集しました！'
         destroy_subject: '課題を削除しました！'
+        not_blrank: '課題名は空欄にはできません'
     teachings:
       teaching: '教育内容'
       date: '教育日'
@@ -114,6 +116,7 @@ ja:
         create_teaching: '教育内容を作成しました！'
         update_teaching: '教育内容を編集しました！'
         destroy_teaching: '教育内容を削除しました！'
+        not_blrank: '教育者名, タイトル, 内容は空欄にはできません'
     searches:
       search: '検索'
       result: '検索結果'
