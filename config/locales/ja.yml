@@ -10,6 +10,8 @@ ja:
   view:
     share:
       create: '作成'
+      signup: '登録'
+      signin: 'ログイン'
       show: '詳細'
       edit: '編集'
       destroy: '削除'

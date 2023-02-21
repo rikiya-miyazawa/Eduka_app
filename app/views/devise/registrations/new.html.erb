@@ -30,7 +30,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password" , placeholder: 'password(確認用)', id: 'password-form' %>
       </div>
       <div class="actions">
-        <%= f.submit 'create', id: 'create-submit' %>
+        <%= f.submit t('view.share.signup'), id: 'create-submit' %>
       </div>
     <% end %>
     <%= render "devise/shared/links" %>
