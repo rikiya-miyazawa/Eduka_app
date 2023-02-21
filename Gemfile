@@ -57,3 +57,5 @@ gem 'rails_admin', '~> 3.0'
 gem 'cancancan'
 #AWS EC2 Deploy
 gem 'unicorn'
+#pagination
+gem 'kaminari'
