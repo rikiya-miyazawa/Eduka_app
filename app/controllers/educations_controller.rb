@@ -53,7 +53,7 @@ class EducationsController < ApplicationController
   end
 
   def show
-    @subjects = @education.subjects.page(params[:page]).per(7)
+    # @subjects = @education.subjects.page(params[:page]).per(7)
   end
 
   def destroy
