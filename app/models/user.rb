@@ -20,10 +20,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile, allow_destroy: true, update_only: true
   accepts_nested_attributes_for :affiliations, allow_destroy: true, update_only: true
 
-  def profile_name
-    profile.name
-  end
-  
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
