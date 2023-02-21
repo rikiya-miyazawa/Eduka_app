@@ -6,6 +6,26 @@
   text-align: center;
   height: auto;
   padding-bottom: 50px;
+  border: 1px ;
+}
+
+#pagenate {
+  position: fixed;
+	bottom: 0;
+  margin-bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+  letter-spacing: 0.2em;
+}
+#pagenate a {
+  text-decoration: none;
+  color: black;
+}
+
+#pagenate a:hover {
+  text-decoration: underline;
+  color: #6a1917;
 }
 
 .profile-index-title {
