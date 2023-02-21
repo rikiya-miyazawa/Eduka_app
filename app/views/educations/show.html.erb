@@ -32,7 +32,7 @@
         <th></th>
       </tr>
 
-      <% @education.subjects.each do |subject| %>
+      <% Kaminari.paginate_array(@subjects).each do |subject| %>
         <tr>
           <td><%= subject.name %></td>
           <td><%= subject.status %></td>
@@ -54,5 +54,8 @@
   <div class="education-show-link">
     <p><%= link_to t('helpers.back'), :back %></p>
     <p><%= link_to t('view.educations.index'), list_education_path(@education.user.id) %></p>
+  </div>
+  <div id="pagenate">
+    <p><%= paginate @subjects %></p>
   </div>
 </div>

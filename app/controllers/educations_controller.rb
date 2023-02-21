@@ -43,10 +43,11 @@ class EducationsController < ApplicationController
 
   def list
     @user = User.find(params[:id])
+    @educations = @user.educations.page(params[:page]).per(7)
   end
 
   def show
-    @subjects = Subject.all
+    @subjects = @education.subjects.page(params[:page]).per(7)
   end
 
   def destroy
