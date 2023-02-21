@@ -40,6 +40,7 @@ class SubjectsController < ApplicationController
   end
 
   def show
+    @teachings = @subject.teachings.page(params[:page]).per(8)
   end
 
   def destroy
