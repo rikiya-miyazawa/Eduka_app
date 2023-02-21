@@ -22,26 +22,30 @@
     <table>
       <tr>
         <th id="education-page"><%= t('view.educations.education') %></th>
-          <% if @user.taught.ids.include?(current_user.id) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
+        <% unless @user.id == current_user.id %>
+          <% if @user.taught.ids.include?(current_user.id) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) || %>
 
             <% @user.affiliation_divisions.each do |division| %>
               <th class="education-index-link"><%= link_to t('view.share.create'), new_education_path(user_id: @user.id, division_id: division.id) %></th>
             <% end %>
           <% end %>
+        <% end %>
       </tr>
   
       <% Kaminari.paginate_array(@educations).each do |education| %>
       <tr>
         <td><%= education.name %></td>
         <td class="education-index-link"><%= link_to t('view.share.show'), education_path(education.id) %></td>
-        <% if @user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
+        <% unless @user.id == current_user.id %>
+          <% if @user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
 
-        <td class="education-index-link"><%= link_to t('view.share.edit'), edit_education_path(education.id) %></td>
-        <td class="education-index-link"><%= link_to t('view.share.destroy'), education_path(education.id),
-        method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+            <td class="education-index-link"><%= link_to t('view.share.edit'), edit_education_path(education.id) %></td>
+            <td class="education-index-link"><%= link_to t('view.share.destroy'), education_path(education.id), method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+          <% end %>
         <% end %>
-      </tr>
       <% end %>
+      </tr>
+      
     </table>
   <div>
   <div id="pagenate">
