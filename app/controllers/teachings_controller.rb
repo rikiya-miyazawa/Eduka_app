@@ -20,7 +20,7 @@ class TeachingsController < ApplicationController
       redirect_to subject_path(@teaching.subject_id), 
       notice: t('view.teachings.notice.create_teaching')
     else
-      redirect_to subject_path(@teaching.subject_id), 
+      redirect_to new_teaching_path(subject_id: @teaching.subject.id, user_id: @teaching.user.id), 
       notice: t('view.teachings.notice.not_blrank')
     end
   end

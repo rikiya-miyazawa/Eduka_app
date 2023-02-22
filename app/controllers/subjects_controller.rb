@@ -20,8 +20,9 @@ class SubjectsController < ApplicationController
       redirect_to education_path(@subject.education_id), 
       notice: t('view.subjects.notice.create_subject')
     else
-      redirect_to education_path(@subject.education_id),
-      notice: t('view.subjects.notice.not_blrank')
+      redirect_to new_subject_path(education_id: @subject.education.id, user_id: @subject.user.id), notice: t('view.subjects.notice.not_blrank')
+      # redirect_to education_path(@subject.education_id),
+      # notice: t('view.subjects.notice.not_blrank')
     end
   end
 

@@ -4,9 +4,9 @@ class Status < ApplicationRecord
   validates :remarks, length: { maximum: 5000 }
   # validates :education_period, comparison: { greater_than: :created_date }
   validate :date_check
- 
+
   private
- 
+
   def date_check
     if education_period.present? && created_date.present?
       if education_period < created_date

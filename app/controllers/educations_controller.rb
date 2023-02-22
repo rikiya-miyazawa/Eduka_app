@@ -21,9 +21,11 @@ class EducationsController < ApplicationController
       redirect_to list_education_path(@education.user.id), 
       notice: t('view.educations.notice.create_education')
     else
-      # render :new
-      redirect_to list_education_path(@education.user.id),
-      notice: t('view.educations.notice.not_blrank')
+      # redirect_to list_education_path(@education.user.id),
+      # notice: t('view.educations.notice.not_blrank')  
+      @education.user.affiliation_divisions.each do |division|
+        redirect_to new_education_path(user_id: @education.user.id, division_id: division.id), notice: t('view.educations.notice.not_blrank')
+      end
     end
   end
 
