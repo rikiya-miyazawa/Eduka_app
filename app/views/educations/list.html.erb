@@ -23,7 +23,7 @@
       <tr>
         <th id="education-page"><%= t('view.educations.education') %></th>
         <% unless @user.id == current_user.id %>
-          <% if @user.taught.ids.include?(current_user.id) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) || %>
+          <% if @user.taught.ids.include?(current_user.id) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
 
             <% @user.affiliation_divisions.each do |division| %>
               <th class="education-index-link"><%= link_to t('view.share.create'), new_education_path(user_id: @user.id, division_id: division.id) %></th>
