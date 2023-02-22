@@ -5,15 +5,15 @@
   </div>
   <div class="teaching-content">
     <h3><%= t('view.teachings.content') %></h3>
-    <p><%= @teaching.content %></p>
+    <p><%=safe_join(@teaching.content.split("\n"),tag(:br))%></p>
   </div>
   <div class="teaching-content">
     <h3><%= t('view.teachings.advice') %></h3>
-    <p><%= @teaching.advice %></p>
+    <p><%=safe_join(@teaching.advice.split("\n"),tag(:br))%></p>
   </div>
   <div class="teaching-content">
     <h3><%= t('view.teachings.remarks') %></h3>
-    <p><%= @teaching.remarks %></p>
+    <p><%=safe_join(@teaching.remarks.split("\n"),tag(:br))%></p>
   </div>
   <div class="teaching-link">
     <p><%= link_to t('helpers.back'), :back %></p>

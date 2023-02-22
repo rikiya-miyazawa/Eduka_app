@@ -84,3 +84,8 @@
 #profile-edit-backlink a:hover {
   text-decoration: underline;
 }
+
+#signup-division-edit {
+  width: 208px;
+  height: 25px;
+}

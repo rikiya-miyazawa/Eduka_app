@@ -28,7 +28,7 @@
         <div class="profile-edit">
           <%= affiliation.label t('view.affiliations.affiliation') %>
           <br>
-          <%= affiliation.select :division_id,  Division.all.collect { |division| [ division.name, division.id ] }%>
+          <%= affiliation.select :division_id,  Division.all.collect { |division| [ division.name, division.id ] }, { prompt: t('view.affiliations.choice') }, id:'signup-division-edit' %>
         </div>
       <% end %>
       <div class="profile-edit">

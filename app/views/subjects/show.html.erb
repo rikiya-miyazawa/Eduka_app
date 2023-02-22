@@ -15,8 +15,10 @@
           <th><%= t('view.teachings.date') %></th>
           <th><%= t('view.teachings.educator') %></th>
           <th><%= t('view.teachings.title') %></th>
-          <% if @subject.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
-            <th><%= link_to t('view.share.create'), new_teaching_path(subject_id: @subject.id, user_id: @subject.user.id) %></th>
+          <% unless @subject.user.id == current_user.id %>
+            <% if @subject.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
+              <th><%= link_to t('view.share.create'), new_teaching_path(subject_id: @subject.id, user_id: @subject.user.id) %></th>
+            <% end %>
           <% end %>
       </tr>
 
@@ -26,10 +28,12 @@
         <td><%= teaching.educator %></td>
         <td><%= teaching.title %></td>
         <td><%= link_to t('view.share.show'), teaching_path(teaching.id) %></td>
-        <% if teaching.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
-          <td><%= link_to t('view.share.edit'), edit_teaching_path(teaching.id) %></td>
-          <td><%= link_to t('view.share.destroy'), teaching_path(teaching.id),
-          method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+        <% unless @subject.user.id == current_user.id %>
+          <% if teaching.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
+            <td><%= link_to t('view.share.edit'), edit_teaching_path(teaching.id) %></td>
+            <td><%= link_to t('view.share.destroy'), teaching_path(teaching.id),
+            method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %> 

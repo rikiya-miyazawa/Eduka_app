@@ -43,6 +43,7 @@
   color: black;
   background-color: #eee9e6;
   border-bottom: 5px solid #d7d0cb;
+  font-size: 8px;
 }
 
 #login-submit:hover {

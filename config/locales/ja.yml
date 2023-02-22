@@ -10,6 +10,8 @@ ja:
   view:
     share:
       create: '作成'
+      signup: '登録'
+      signin: 'ログイン'
       show: '詳細'
       edit: '編集'
       destroy: '削除'
@@ -83,7 +85,7 @@ ja:
         not_new_education: '教育担当者以外は作成できません'
         not_edit_education: '教育担当者以外は編集できません'
         not_destroy_education: '教育担当者以外は削除できません'
-        not_blrank: '教育種類, 教育目的は空欄にはできません'
+        not_blrank: "教育種類, 教育目的を空欄, \n教育期間を開始日より前には設定できません。"
     statuses:
       purpose: '教育目的'
       education_period: '教育期間'
@@ -120,6 +122,13 @@ ja:
     searches:
       search: '検索'
       result: '検索結果'
+  views:
+    pagination:
+        first: '最初'
+        last: '最後'
+        previous: '前'
+        next: '次'
+        truncate: '...'
   date:
     abbr_day_names:
     - 日

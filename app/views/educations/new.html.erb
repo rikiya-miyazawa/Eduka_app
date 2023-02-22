@@ -1,5 +1,6 @@
 <div class="education-container">
   <h2><%= t('view.educations.new_education') %></h2>
+  <p class="education-notice"><%= notice %></p>
 
   <%= form_with(model: @education, local: true) do |form| %>
     <% if @education.errors.any? %>
