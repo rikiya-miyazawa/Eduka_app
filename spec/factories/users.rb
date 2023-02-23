@@ -7,4 +7,8 @@ FactoryBot.define do
     email { 'socond_userspec@example.com' }
     password { '111111' }
   end
+  factory :third_user, class: User do
+    email { 'third_userspec@example.com' }
+    password { '111111' }
+  end
 end
