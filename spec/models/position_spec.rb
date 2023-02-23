@@ -13,8 +13,8 @@ RSpec.describe Position, type: :model do
     context 'user_id, role_idが重複している場合' do
       it "ユーザに権限を付与できない" do
         position = Position.new(
-          user_id: 1,
-          role_id: 1
+          user: user,
+          role: role
         )
         expect(position).not_to be_valid
       end
