@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :profile do
-    name { 'specprofile' }
+    name { '田中舞' }
     hire_date { '2023-2-22' }
     job { 'スタイリスト' }
   end
