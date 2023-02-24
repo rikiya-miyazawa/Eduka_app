@@ -2,7 +2,6 @@ class Status < ApplicationRecord
   belongs_to :education
   validates :purpose, presence: true
   validates :remarks, length: { maximum: 5000 }
-  # validates :education_period, comparison: { greater_than: :created_date }
   validate :date_check
 
   private
