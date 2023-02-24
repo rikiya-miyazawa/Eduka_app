@@ -116,4 +116,36 @@ RSpec.describe '教育内容管理機能', type: :system do
       end
     end
   end
+  describe '教育内容共有機能' do
+    let!(:user1) { FactoryBot.create(:user) }
+    let!(:user2) { FactoryBot.create(:second_user) }
+    let!(:profile1) { FactoryBot.create(:profile, user: user1) }
+    let!(:profile2) { FactoryBot.create(:second_profile, user: user2) }
+    let!(:division) { FactoryBot.create(:division) }
+    let!(:education) { FactoryBot.create(:education, user: user2, division: division) }
+    let!(:status) { FactoryBot.create(:status, education: education) }
+    let!(:subject) { FactoryBot.create(:subject, user: user2, education: education) }
+    let!(:teaching) { FactoryBot.create(:teaching, user: user2, subject: subject) }
+    before do
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'userspec@example.com'
+      fill_in 'user[password]', with: '111111'
+      find('#login-submit').click
+      click_on 'マイページ'
+      select '下田竜也', from: 'subordinate_id'
+      click_on '追加する'
+      visit profiles_path
+      page.all("#education-path")[1].click
+      click_on '詳細'
+      sleep(2)
+    end
+    context '他のユーザの教育内容を閲覧しようとした場合' do
+      it '教育内容を閲覧できる' do
+        click_on '詳細'
+        sleep(2)
+        click_on '詳細'
+        expect(page).to have_content 'まずはクロスをつけてから'
+      end
+    end
+  end
 end
