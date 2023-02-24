@@ -28,6 +28,16 @@ RSpec.describe 'ユーザー管理機能', type: :system do
         expect(page).to have_content 'ログインしました。'
       end
     end
+    context 'ユーザーがログアウトした場合' do
+      it 'メインメニューに遷移する' do
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'userspec@example.com'
+        fill_in 'user[password]', with: '111111'
+        find('#login-submit').click
+        expect(page).to have_content 'ログインしました。'
+        click_on 'ログアウト'
+      end
+    end
     context 'ゲストユーザーがログインした場合' do
       it '社員一覧に遷移できる' do
         visit menu_tops_path
@@ -59,6 +69,22 @@ RSpec.describe 'ユーザー管理機能', type: :system do
         click_on '管理者ゲストログイン'
         click_on '管理者画面'
         expect(page).to have_content 'サイト管理'
+      end
+    end
+  end
+  describe 'アクセス制限機能' do
+    let!(:user1) { FactoryBot.create(:user) }
+    let!(:user2) { FactoryBot.create(:second_user) }
+    let!(:profile1) { FactoryBot.create(:profile, user: user1) }
+    let!(:profile2) { FactoryBot.create(:second_profile, user: user2) }
+    context 'ユーザーが他のユーザのマイページにログインしようとした場合' do
+      it '画面遷移できす、自分のマイページに留まる' do
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'userspec@example.com'
+        fill_in 'user[password]', with: '111111'
+        find('#login-submit').click
+        visit profile_path(user2.id)
+        expect(page).to have_content '田中舞'
       end
     end
   end

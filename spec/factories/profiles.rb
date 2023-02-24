@@ -14,4 +14,9 @@ FactoryBot.define do
     hire_date { '2022-2-22' }
     job { 'アシスタント' }
   end
+  factory :third_profile, class: Profile do
+    name { '中村あい' }
+    hire_date { '2021-2-22' }
+    job { 'スタイリスト' }
+  end
 end

@@ -57,7 +57,6 @@ RSpec.describe '教育ページ管理機能', type: :system do
       it '教育ページが編集できる' do
         page.all("#education-path")[1].click
         click_on '編集'
-        sleep(5)
         fill_in 'education[name]', with: '接客'
         fill_in 'education[status_attributes][purpose]', with: 'お客様の信頼を得るために技術を磨こう！'
         select '2020', from: 'education[status_attributes][created_date(1i)]'
@@ -97,6 +96,52 @@ RSpec.describe '教育ページ管理機能', type: :system do
           click_on '削除'
         end
         expect(page).to have_content '教育ページを削除しました'
+      end
+    end
+  end
+  describe '教育ぺージアクセス制限機能' do
+    let!(:user1) { FactoryBot.create(:user) }
+    let!(:user2) { FactoryBot.create(:second_user) }
+    let!(:user3) { FactoryBot.create(:third_user) }
+    let!(:profile1) { FactoryBot.create(:profile, user: user1) }
+    let!(:profile2) { FactoryBot.create(:second_profile, user: user2) }
+    let!(:profile3) { FactoryBot.create(:third_profile, user: user3) }
+    let!(:division) { FactoryBot.create(:division) }
+    let!(:education) { FactoryBot.create(:education, user: user2, division: division) }
+    let!(:status) { FactoryBot.create(:status, education: education) }
+    before do
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'userspec@example.com'
+      fill_in 'user[password]', with: '111111'
+      find('#login-submit').click
+      click_on 'マイページ'
+      select '下田竜也', from: 'subordinate_id'
+      click_on '追加する'
+      visit profiles_path
+      click_on 'ログアウト'
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'third_userspec@example.com'
+      fill_in 'user[password]', with: '111111'
+      find('#login-submit').click
+    end
+    context '上司以外が教育ページを作成しようとした場合' do
+      it '教育ページが作成できない' do
+        page.all("#education-path")[1].click
+        visit new_education_path(user_id: user2.id, division_id: division.id)
+        expect(page).to have_content '作成できません'
+      end
+    end
+    context '上司以外が教育ページを編集しようとした場合' do
+      it '教育ページが編集できない' do
+        page.all("#education-path")[1].click
+        visit edit_education_path(education.id)
+        expect(page).to have_content '編集できません'
+      end
+    end
+    context '上司以外が教育ページを削除しようとした場合' do
+      it '教育ページが削除できない' do
+        page.all("#education-path")[1].click
+        expect(page).not_to have_content '削除'
       end
     end
   end

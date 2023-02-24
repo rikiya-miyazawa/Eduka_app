@@ -148,4 +148,54 @@ RSpec.describe '教育内容管理機能', type: :system do
       end
     end
   end
+  describe '教育内容アクセス制限機能' do
+    let!(:user1) { FactoryBot.create(:user) }
+    let!(:user2) { FactoryBot.create(:second_user) }
+    let!(:user3) { FactoryBot.create(:third_user) }
+    let!(:profile1) { FactoryBot.create(:profile, user: user1) }
+    let!(:profile2) { FactoryBot.create(:second_profile, user: user2) }
+    let!(:profile3) { FactoryBot.create(:third_profile, user: user3) }
+    let!(:division) { FactoryBot.create(:division) }
+    let!(:education) { FactoryBot.create(:education, user: user2, division: division) }
+    let!(:status) { FactoryBot.create(:status, education: education) }
+    let!(:subject) { FactoryBot.create(:subject, user: user2, education: education) }
+    let!(:teaching) { FactoryBot.create(:teaching, user: user2, subject: subject) }
+    before do
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'userspec@example.com'
+      fill_in 'user[password]', with: '111111'
+      find('#login-submit').click
+      click_on 'マイページ'
+      select '下田竜也', from: 'subordinate_id'
+      click_on '追加する'
+      visit profiles_path
+      click_on 'ログアウト'
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'third_userspec@example.com'
+      fill_in 'user[password]', with: '111111'
+      find('#login-submit').click
+      page.all("#education-path")[1].click
+      sleep(1)
+      click_on '詳細'
+      sleep(1)
+      click_on '詳細'
+    end
+    context '上司以外が教育内容を作成しようとした場合' do
+      it '教育内容が作成できない' do
+        visit new_teaching_path(user_id: user2.id, subject_id: subject.id)
+        expect(page).to have_content '作成できません'
+      end
+    end
+    context '上司以外が教育内容を編集しようとした場合' do
+      it '教育内容が編集できない' do
+        visit edit_teaching_path(teaching.id)
+        expect(page).to have_content '編集できません'
+      end
+    end
+    context '上司以外が教育内容を削除しようとした場合' do
+      it '教育内容が削除できない' do
+        expect(page).not_to have_content '削除'
+      end
+    end
+  end
 end
