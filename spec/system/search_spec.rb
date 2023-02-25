@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe '検索機能', type: :system do
   describe '検索機能' do
     let!(:user1) { FactoryBot.create(:user) }

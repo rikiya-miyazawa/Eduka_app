@@ -5,7 +5,6 @@ RSpec.describe Subject, type: :model do
   let!(:division) { FactoryBot.create(:division) }
   let!(:education) { FactoryBot.create(:education, user: user, division: division) }
   let!(:subject) { FactoryBot.create(:subject, user: user, education: education) }
-
   describe 'Subjectのバリデーションのテスト' do
     context '課題の名前の入力がある場合' do
       it "課題の登録ができる" do
