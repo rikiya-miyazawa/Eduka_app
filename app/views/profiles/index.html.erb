@@ -22,7 +22,7 @@
         <th><%= t('view.profiles.job') %></th>
       </tr>
 
-      <% @profiles.each do |profile| %>
+      <% @paginate_profiles.each do |profile| %>
         <% unless profile.name == 'ゲスト' || profile.name == '管理者ゲスト'%>
           <tr>
             <td><%= profile.name %></td>
@@ -38,6 +38,6 @@
     </table>
   </div>
   <div id="pagenate">
-    <p><%= paginate @profiles %></p>
+    <p><%= paginate @paginate_profiles %></p>
   </div>
 </div>

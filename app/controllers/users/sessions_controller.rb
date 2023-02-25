@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
-
+  
   def after_sign_in_path_for(resource)
     profiles_path
   end 
@@ -10,7 +9,6 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
     menu_tops_path
   end 
-
 
   def new_guest
     user = User.guest

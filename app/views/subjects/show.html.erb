@@ -16,20 +16,20 @@
           <th><%= t('view.teachings.educator') %></th>
           <th><%= t('view.teachings.title') %></th>
           <% unless @subject.user.id == current_user.id %>
-            <% if @subject.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
+            <% if subject_superior || admin || subject_manager %>
               <th><%= link_to t('view.share.create'), new_teaching_path(subject_id: @subject.id, user_id: @subject.user.id) %></th>
             <% end %>
           <% end %>
       </tr>
 
-    <% Kaminari.paginate_array(@teachings).each do |teaching| %>
+    <% Kaminari.paginate_array(@paginate_teachings).each do |teaching| %>
       <tr>
         <td><%= teaching.date %></td>
         <td><%= teaching.educator %></td>
         <td><%= teaching.title %></td>
         <td><%= link_to t('view.share.show'), teaching_path(teaching.id) %></td>
-        <% unless @subject.user.id == current_user.id %>
-          <% if teaching.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) %>
+        <% unless teaching.user.id == current_user.id %>
+          <% if subject_superior || admin || subject_manager %>
             <td><%= link_to t('view.share.edit'), edit_teaching_path(teaching.id) %></td>
             <td><%= link_to t('view.share.destroy'), teaching_path(teaching.id),
             method: :delete, data: { confirm: t('view.share.confirm.destroy') } %></td>
@@ -44,6 +44,6 @@
     <p><%= link_to t('view.subjects.index'), education_path(@subject.education_id) %></p>
   </div>
   <div id="pagenate">
-    <p><%= paginate @teachings %></p>
+    <p><%= paginate @paginate_teachings %></p>
   </div>
 </div>

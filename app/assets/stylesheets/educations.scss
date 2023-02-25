@@ -23,7 +23,6 @@
 .education-index-table table {
   display: flex;
   justify-content: center;
-  // margin-right: 220px;
   margin-bottom: 40px;
 }
 .education-index-table table th {
@@ -71,8 +70,6 @@
   overflow: auto;
   height: auto;
   padding-bottom: 50px;
-  // height: 50vh;
-  // padding-top: 150px;
 }
 
 .education-container h2 {
@@ -128,7 +125,6 @@ margin-bottom: 25px;
 }
 
 //show
-
 .education-show-container {
   display: flex;
   justify-content: center;
@@ -178,15 +174,16 @@ margin-bottom: 25px;
   padding-bottom: 20px;
   font-size: 20px;
 }
+
 .education-show-table th a {
   color: #6a1917;
   text-decoration: none;
   background-color: #e5d7d7;
 }
+
 .education-show-table th a:hover {
   text-decoration: underline;
 }
-
 
 .education-show-table td {
   padding-right: 20px;

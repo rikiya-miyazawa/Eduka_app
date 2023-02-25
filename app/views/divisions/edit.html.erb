@@ -7,7 +7,7 @@
       <h2><%= @division.errors.count %>
       <%= t('errors.messages.count') %></h2>
       <ul>
-
+      
       <% @division.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>

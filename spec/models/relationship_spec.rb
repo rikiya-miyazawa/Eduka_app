@@ -6,7 +6,6 @@ RSpec.describe Relationship, type: :model do
   let!(:subordinate_user2) { FactoryBot.create(:third_user) }
   let!(:relationship1) { FactoryBot.create(:relationship, superior: superior_user, subordinate: subordinate_user1) }
   let!(:relationship2) { FactoryBot.create(:relationship, superior: superior_user, subordinate: subordinate_user2) }
-
   describe 'Relationshipのバリデーションのテスト' do
     context 'superior_id, subordinate_idがある場合' do
       it "上司,部下の関係を登録できる" do

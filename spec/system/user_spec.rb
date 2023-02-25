@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe 'ユーザー管理機能', type: :system do
   let!(:division) { FactoryBot.create(:division) }
   describe 'ユーザー登録機能' do

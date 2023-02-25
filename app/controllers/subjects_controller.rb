@@ -6,7 +6,7 @@ class SubjectsController < ApplicationController
     if @user.id == current_user.id
       redirect_to education_path(params[:education_id]),
       notice: t('view.share.notice.not_new')
-    elsif @user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) 
+    elsif  superior_new || admin || manager_new
       @subject = Subject.new
     else
       redirect_to education_path(params[:education_id]),
@@ -21,8 +21,6 @@ class SubjectsController < ApplicationController
       notice: t('view.subjects.notice.create_subject')
     else
       redirect_to new_subject_path(education_id: @subject.education.id, user_id: @subject.user.id), notice: t('view.subjects.notice.not_blrank')
-      # redirect_to education_path(@subject.education_id),
-      # notice: t('view.subjects.notice.not_blrank')
     end
   end
 
@@ -30,7 +28,7 @@ class SubjectsController < ApplicationController
     if @subject.user.id == current_user.id
       redirect_to education_path(@subject.education.id),
       notice: t('view.share.notice.not_edit')
-    elsif @subject.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) 
+    elsif subjects_superior || admin || subjects_manager
     else
       redirect_to education_path(@subject.education.id),
       notice: t('view.share.notice.not_edit')
@@ -47,14 +45,14 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    @teachings = @subject.teachings.page(params[:page]).per(8)
+    @paginate_teachings = @subject.teachings.page(params[:page]).per(8)
   end
 
   def destroy
     if @subject.user.id == current_user.id
       redirect_to education_path(@subject.education.id),
       notice: t('view.share.notice.not_destroy')
-    elsif @subject.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id)))
+    elsif subjects_superior || admin || subjects_manager
       @subject.destroy
       redirect_to education_path(@subject.education_id),
       notice: t('view.subjects.notice.destroy_subject')

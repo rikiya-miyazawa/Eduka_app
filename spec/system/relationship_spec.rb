@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe '教育担当追加機能', type: :system do
   describe '教育対象者追加機能' do
     let!(:user1) { FactoryBot.create(:user) }

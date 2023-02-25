@@ -2,7 +2,6 @@
 
 class Ability
   include CanCan::Ability
-
   def initialize(user)
     user.roles.each do |role| 
       case role.name

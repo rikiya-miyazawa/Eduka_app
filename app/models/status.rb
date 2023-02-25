@@ -7,10 +7,9 @@ class Status < ApplicationRecord
   private
 
   def date_check
-    if education_period.present? && created_date.present?
-      if education_period < created_date
+    if education_period.present? && created_date.present? \
+      && education_period < created_date
         errors.add(:education_period, 'は開始日より前の日を設定することはできません。')
-      end
     end
   end
 end
