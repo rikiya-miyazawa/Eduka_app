@@ -6,7 +6,7 @@ class EducationsController < ApplicationController
       if @user.id == current_user.id 
         redirect_to list_education_path(@user.id),
         notice: t('view.educations.notice.not_new_education')
-      elsif @user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id))) 
+      elsif superior_new || admin || manager_new
         @education = Education.new
         @education.status
       else
@@ -21,10 +21,9 @@ class EducationsController < ApplicationController
       redirect_to list_education_path(@education.user.id), 
       notice: t('view.educations.notice.create_education')
     else
-      # redirect_to list_education_path(@education.user.id),
-      # notice: t('view.educations.notice.not_blrank')  
       @education.user.affiliation_divisions.each do |division|
-        redirect_to new_education_path(user_id: @education.user.id, division_id: division.id), notice: t('view.educations.notice.not_blrank')
+        redirect_to new_education_path(user_id: @education.user.id, division_id: division.id), 
+        notice: t('view.educations.notice.not_blrank')
       end
     end
   end
@@ -33,7 +32,7 @@ class EducationsController < ApplicationController
     if @education.user.id == current_user.id
       redirect_to list_education_path(@education.user.id),
       notice: t('view.educations.notice.not_edit_education')
-    elsif @education.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @education.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id)))
+    elsif educations_superior || admin || educations_manager
     else
       redirect_to list_education_path(@education.user.id),
       notice: t('view.educations.notice.not_edit_education')
@@ -51,18 +50,17 @@ class EducationsController < ApplicationController
 
   def list
     @user = User.find(params[:id])
-    @educations = @user.educations.page(params[:page]).per(7)
+    @paginate_educations = @user.educations.page(params[:page]).per(7)
   end
 
   def show
-    # @subjects = @education.subjects.page(params[:page]).per(7)
   end
 
   def destroy
     if @education.user.id == current_user.id
       redirect_to list_education_path(@education.user.id),
       notice: t('view.educations.notice.not_destroy_education')
-    elsif @education.user.taught.ids.to_s.include?(current_user.id.to_s) || current_user.roles.first.try(:name) == "admin" || (current_user.roles.first.try(:name) == "manager" && @education.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id)))
+    elsif educations_superior || admin || educations_manager
       @education.destroy
       redirect_to list_education_path(@education.user.id),
       notice: t('view.educations.notice.destroy_education')

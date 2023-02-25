@@ -32,7 +32,7 @@
         <% end %>
       </tr>
   
-      <% Kaminari.paginate_array(@educations).each do |education| %>
+      <% Kaminari.paginate_array(@paginate_educations).each do |education| %>
       <tr>
         <td><%= education.name %></td>
         <td class="education-index-link"><%= link_to t('view.share.show'), education_path(education.id) %></td>
@@ -49,6 +49,6 @@
     </table>
   <div>
   <div id="pagenate">
-    <p><%= paginate @educations %></p>
+    <p><%= paginate @paginate_educations %></p>
   </div>
 </div>
