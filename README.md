@@ -63,7 +63,7 @@ https://docs.google.com/spreadsheets/d/16YcQeQXrJ_YFsqyhO2hmL86sBrpFL-lw9gQpDtun
 https://www.figma.com/file/ow5QD4cNmUWQCLhTfdwLh7/Eduka-%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0?node-id=0%3A1&t=tkNCG0yJkxO0uhei-1
 
 ## ER図
-![ER図](img/Eduka-ER.png)
+![ER図](img/Eduka-ER(update).png)
 
 ## 画面遷移図
-![画面遷移図](img/Eduka-screen.png)
+![画面遷移図](img/Eduka-screen(update).png)
