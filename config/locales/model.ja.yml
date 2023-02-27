@@ -24,6 +24,8 @@ ja:
         subordinate_id: 教育対象者
       division:
         name: 配属先名
+      affiliations:
+        division: 所属
       education:
         name: 教育種類
       status:
