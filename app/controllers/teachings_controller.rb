@@ -71,4 +71,12 @@ class TeachingsController < ApplicationController
   def set_teaching
     @teaching = Teaching.find(params[:id])
   end
+  
+  def teachings_superior
+    @teaching.user.taught.ids.include?(current_user.id)
+  end
+
+  def teachings_manager
+    (current_user.roles.first.try(:name) == "manager" && @teaching.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id)))
+  end
 end
