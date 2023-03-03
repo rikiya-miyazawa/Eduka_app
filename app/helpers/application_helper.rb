@@ -15,18 +15,6 @@ module ApplicationHelper
     end
   end
 
-  def admin
-    current_user.roles.first.try(:name) == "admin"
-  end
-
-  def superior
-    @user.taught.ids.include?(current_user.id)
-  end
-
-  def manager
-    (current_user.roles.first.try(:name) == "manager" && @user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id)))
-  end
-
   def subject_superior
     @subject.user.taught.ids.include?(current_user.id)
   end
