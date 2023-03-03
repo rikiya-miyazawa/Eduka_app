@@ -72,4 +72,11 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
   end
 
+  def subjects_superior
+    @subject.user.taught.ids.include?(current_user.id)
+  end
+
+  def subjects_manager
+    (current_user.roles.first.try(:name) == "manager" && @subject.user.affiliation_divisions.exists?(id: current_user.affiliation_divisions.pluck(:id)))
+  end
 end
