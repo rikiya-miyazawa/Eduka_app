@@ -10,7 +10,9 @@
         <th><%= t('view.profiles.hire_date') %></th>
         <th><%= t('view.profiles.job') %></th>
       </tr>
-
+      <tr>
+        <th><%= sort_link(@q, :name, "Name") %></th>
+      </tr>
       <% @results.each do |profile| %>
       <tr>
         <td><%= profile.name %></td>
