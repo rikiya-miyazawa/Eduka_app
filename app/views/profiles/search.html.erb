@@ -12,6 +12,8 @@
       </tr>
       <tr>
         <th><%= sort_link(@q, :name, "Name") %></th>
+        <th><%= sort_link(@q, :hire_date, "入社日順") %></th>
+        <th><%= sort_link(@q, :job, "職種") %></th>
       </tr>
       <% @results.each do |profile| %>
       <tr>
