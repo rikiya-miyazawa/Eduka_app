@@ -18,8 +18,8 @@
       <tr>
         <th><%= t('view.profiles.name') %></th>
         <th><%= t('view.affiliations.affiliation') %></th>
-        <th><%= t('view.profiles.hire_date') %></th>
-        <th><%= t('view.profiles.job') %></th>
+        <th><%= sort_link(@q, :hire_date, t('view.profiles.hire_date')) %></th>
+        <th><%= sort_link(@q, :job, t('view.profiles.job')) %></th>
       </tr>
 
       <% @paginate_profiles.each do |profile| %>
@@ -34,7 +34,7 @@
             <td id="education-path"><%= link_to t('view.teachings.teaching'), list_education_path(profile.user.id) %></td>
           </tr>
         <% end %> 
-      <% end %> 
+      <% end %>
     </table>
   </div>
   <div id="pagenate">
