@@ -8,7 +8,7 @@
         <th><%= t('view.profiles.name') %></th>
         <th><%= t('view.affiliations.affiliation') %></th>
         <th><%= sort_link(@q, :hire_date, t('view.profiles.hire_date')) %></th>
-        <th><%= t('view.profiles.job') %></th>
+        <th><%= sort_link(@q, :job, t('view.profiles.job')) %></th>
       </tr>
       <% @results.each do |profile| %>
       <tr>
