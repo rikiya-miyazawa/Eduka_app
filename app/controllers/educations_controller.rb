@@ -59,6 +59,13 @@ class EducationsController < ApplicationController
   end
 
   def show
+    # if params[:sort_status]
+    #   @education = @education.subjects.order(name: :asc)
+    # end
+    @subjects = @education.subjects.includes(:user)
+    if params[:sort_status]
+      @subjects = @subjects.order(status: :desc)
+    end
   end
 
   def destroy

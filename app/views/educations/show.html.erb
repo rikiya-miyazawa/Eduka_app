@@ -24,7 +24,7 @@
     <table>
       <tr>
         <th><%= t('view.subjects.subject') %></th>
-        <th><%= t('view.subjects.status') %></th>
+        <th><%= link_to t('view.subjects.status'),education_path(@education.id, sort_status: "true")  %></th>
         <th><%= t('view.subjects.deadline') %></th>
         <% unless @education.user.id == current_user.id %>
           <% if education_superior || admin || education_manager %>
@@ -34,7 +34,7 @@
         <th></th>
       </tr>
 
-      <% @education.subjects.each do |subject| %>
+      <% @subjects.each do |subject| %>
         <tr>
           <td><%= subject.name %></td>
           <td><%= subject.status %></td>
