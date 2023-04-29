@@ -64,6 +64,8 @@ class EducationsController < ApplicationController
       @subjects = @subjects.order(status: :desc)
     elsif params[:sort_deadline]
       @subjects = @subjects.order(deadline: :desc)
+    elsif params[:sort_latest]
+      @subjects = @subjects.order(created_at: :desc)
     end
   end
 
