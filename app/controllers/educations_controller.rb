@@ -50,7 +50,12 @@ class EducationsController < ApplicationController
 
   def list
     @user = User.find(params[:id])
-    @paginate_educations = @user.educations.page(params[:page]).per(7)
+    if params[:sort_latest]
+      @paginate_educations = @user.educations.latest.page(params[:page]).per(7)
+    else
+      @paginate_educations = @user.educations.page(params[:page]).per(7)
+    end
+    # @paginate_educations = @user.educations.page(params[:page]).per(7)
   end
 
   def show
