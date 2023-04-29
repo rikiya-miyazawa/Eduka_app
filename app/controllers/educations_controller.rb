@@ -59,12 +59,11 @@ class EducationsController < ApplicationController
   end
 
   def show
-    # if params[:sort_status]
-    #   @education = @education.subjects.order(name: :asc)
-    # end
     @subjects = @education.subjects.includes(:user)
     if params[:sort_status]
       @subjects = @subjects.order(status: :desc)
+    elsif params[:sort_deadline]
+      @subjects = @subjects.order(deadline: :desc)
     end
   end
 
