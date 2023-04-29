@@ -48,14 +48,9 @@ class SubjectsController < ApplicationController
     @paginate_teachings = @subject.teachings.page(params[:page]).per(8)
     if params[:sort_date]
       @paginate_teachings = @subject.teachings.order(date: :desc).page(params[:page]).per(8)
-    
+    elsif params[:sort_educator]
+      @paginate_teachings = @subject.teachings.order(educator: :desc).page(params[:page]).per(8)
     end
-    # @subjects = @education.subjects.includes(:user)
-    # if params[:sort_status]
-    #   @subjects = @subjects.order(status: :desc)
-    # elsif params[:sort_deadline]
-    #   @subjects = @subjects.order(deadline: :desc)
-    # end
   end
 
   def destroy
