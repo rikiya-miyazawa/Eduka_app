@@ -58,6 +58,17 @@
   padding-bottom: 20px;
 }
 
+.profile-table-container th a {
+  font-size: 22px;
+  padding-bottom: 20px;
+  color: #727171;
+  text-decoration: none;
+}
+
+.profile-table-container th a:hover {
+  text-decoration: underline;
+}
+
 .profile-table-container td {
   padding-right: 60px;
   padding-bottom: 15px;
