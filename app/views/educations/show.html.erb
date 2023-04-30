@@ -23,15 +23,14 @@
   <div class="education-show-table">
     <table>
       <tr>
-        <th><%= link_to t('view.subjects.subject'), education_path(@education.id, sort_latest: "true") %></th>
-        <th><%= link_to t('view.subjects.status'), education_path(@education.id, sort_status: "true") %></th>
-        <th><%= link_to t('view.subjects.deadline'), education_path(@education.id, sort_deadline: "true") %></th>
+        <th id="education_sort"><%= link_to t('view.subjects.subject'), education_path(@education.id, sort_latest: "true") %></th>
+        <th id="education_sort"><%= link_to t('view.subjects.status'), education_path(@education.id, sort_status: "true") %></th>
+        <th id="education_sort"><%= link_to t('view.subjects.deadline'), education_path(@education.id, sort_deadline: "true") %></th>
         <% unless @education.user.id == current_user.id %>
           <% if education_superior || admin || education_manager %>
             <th><%= link_to t('view.share.create'), new_subject_path(education_id: @education.id, user_id: @education.user.id) %></th>
           <% end %>
         <% end %>
-        <th></th>
       </tr>
 
       <% @subjects.each do |subject| %>
