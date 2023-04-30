@@ -21,7 +21,7 @@
   <div class="education-index-table2">
     <table>
       <tr>
-        <th id="education-page"><%= t('view.educations.education') %></th>
+        <th id="education-page"><%= link_to t('view.educations.education'),list_education_path(@user.id, sort_latest: "true")  %></th>
         <% unless @user.id == current_user.id %>
           <% if superior || admin || manager %>
             <% @user.affiliation_divisions.each do |division| %>

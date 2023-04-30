@@ -46,6 +46,11 @@ class SubjectsController < ApplicationController
 
   def show
     @paginate_teachings = @subject.teachings.page(params[:page]).per(8)
+    if params[:sort_date]
+      @paginate_teachings = @subject.teachings.order(date: :desc).page(params[:page]).per(8)
+    elsif params[:sort_educator]
+      @paginate_teachings = @subject.teachings.order(educator: :desc).page(params[:page]).per(8)
+    end
   end
 
   def destroy

@@ -12,8 +12,8 @@
   <div class="subject-show-table">
     <table>
       <tr>
-          <th><%= t('view.teachings.date') %></th>
-          <th><%= t('view.teachings.educator') %></th>
+          <th id="subject_sort"><%= link_to t('view.teachings.date'), subject_path(@subject.id, sort_date: "true") %></th>
+          <th id="subject_sort"><%= link_to t('view.teachings.educator'), subject_path(@subject.id, sort_educator: "true") %></th>
           <th><%= t('view.teachings.title') %></th>
           <% unless @subject.user.id == current_user.id %>
             <% if subject_superior || admin || subject_manager %>

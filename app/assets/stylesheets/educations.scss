@@ -61,6 +61,17 @@
   text-align: left;
 }
 
+#education-page a {
+  color: #727171;
+  text-decoration: none;
+}
+
+#education-page a:hover {
+  text-decoration: underline;
+}
+
+
+
 //new & edit
 .education-container {
   display: flex;
@@ -207,5 +218,15 @@ margin-bottom: 25px;
 }
 
 .education-show-link a:hover {
+  text-decoration: underline;
+}
+
+#education_sort a {
+  color: #727171;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+#education_sort a:hover {
   text-decoration: underline;
 }

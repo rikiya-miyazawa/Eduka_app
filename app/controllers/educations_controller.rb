@@ -50,10 +50,23 @@ class EducationsController < ApplicationController
 
   def list
     @user = User.find(params[:id])
-    @paginate_educations = @user.educations.page(params[:page]).per(7)
+    if params[:sort_latest]
+      @paginate_educations = @user.educations.latest.page(params[:page]).per(7)
+    else
+      @paginate_educations = @user.educations.page(params[:page]).per(7)
+    end
+    # @paginate_educations = @user.educations.page(params[:page]).per(7)
   end
 
   def show
+    @subjects = @education.subjects.includes(:user)
+    if params[:sort_status]
+      @subjects = @subjects.order(status: :desc)
+    elsif params[:sort_deadline]
+      @subjects = @subjects.order(deadline: :desc)
+    elsif params[:sort_latest]
+      @subjects = @subjects.order(created_at: :desc)
+    end
   end
 
   def destroy

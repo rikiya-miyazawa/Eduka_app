@@ -2,8 +2,9 @@ class ProfilesController < ApplicationController
   before_action :set_q, only: %i(index search)
 
   def index
-    @profiles = Profile.all
-    @paginate_profiles = Profile.page(params[:page]).per(10)
+    profiles = @q.result.includes(user: :affiliation_divisions)
+    profiles = profiles.reject { |profile| profile.name == 'ゲスト' ||  profile.name == '管理者ゲスト' }
+    @paginate_profiles = Kaminari.paginate_array(profiles).page(params[:page]).per(5)
   end
 
   def show
